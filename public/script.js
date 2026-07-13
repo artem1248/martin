@@ -1,50 +1,104 @@
+// ==========================
+// ELEMENTS
+// ==========================
+
+const loader = document.getElementById("loader");
+
 const popup = document.getElementById("welcomeOverlay");
 const popupClose = document.getElementById("popupClose");
 const popupNever = document.getElementById("popupNever");
 
-const donatePopup = document.getElementById("donateOverlay");
+const donateOverlay = document.getElementById("donateOverlay");
 const openDonate = document.getElementById("openDonate");
 const closeDonate = document.getElementById("closeDonate");
-const donateButton = document.getElementById("goDonate");
+
+const goDonate = document.getElementById("goDonate");
 const sendDonate = document.getElementById("sendDonate");
+
+const nickname = document.getElementById("nickname");
+const amount = document.getElementById("amount");
+const showName = document.getElementById("showName");
+
+const friendsList = document.getElementById("friendsList");
 
 const tiktokBtn = document.getElementById("tiktokBtn");
 const instagramBtn = document.getElementById("instagramBtn");
 const youtubeBtn = document.getElementById("youtubeBtn");
 const telegramBtn = document.getElementById("telegramBtn");
 
-if(localStorage.getItem("martinHidePopup")){
+// ==========================
+// LOADER
+// ==========================
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        loader.style.opacity = "0";
+
+        setTimeout(() => {
+
+            loader.style.display = "none";
+
+        },700);
+
+    },1800);
+
+});
+
+// ==========================
+// WELCOME
+// ==========================
+
+if(localStorage.getItem("martinPopupHidden")){
+
     popup.style.display="none";
+
 }
 
 popupClose.onclick=()=>{
+
     popup.style.display="none";
+
 }
 
 popupNever.onclick=()=>{
 
     localStorage.setItem(
-        "martinHidePopup",
+
+        "martinPopupHidden",
+
         "true"
+
     );
 
     popup.style.display="none";
 
-}
+};
 
+// ==========================
+// SOCIAL
+// ==========================
+
+function openLink(link){
+
+    if(!link) return;
+
+    window.open(
+
+        link,
+
+        "_blank"
+
+    );
+
+}
 
 tiktokBtn.onclick=(e)=>{
 
     e.preventDefault();
 
-    if(CONFIG.tiktok){
-
-        window.open(
-            CONFIG.tiktok,
-            "_blank"
-        );
-
-    }
+    openLink(CONFIG.tiktok);
 
 };
 
@@ -52,14 +106,7 @@ instagramBtn.onclick=(e)=>{
 
     e.preventDefault();
 
-    if(CONFIG.instagram){
-
-        window.open(
-            CONFIG.instagram,
-            "_blank"
-        );
-
-    }
+    openLink(CONFIG.instagram);
 
 };
 
@@ -67,14 +114,7 @@ youtubeBtn.onclick=(e)=>{
 
     e.preventDefault();
 
-    if(CONFIG.youtube){
-
-        window.open(
-            CONFIG.youtube,
-            "_blank"
-        );
-
-    }
+    openLink(CONFIG.youtube);
 
 };
 
@@ -82,75 +122,69 @@ telegramBtn.onclick=(e)=>{
 
     e.preventDefault();
 
-    if(CONFIG.telegram){
-
-        window.open(
-            CONFIG.telegram,
-            "_blank"
-        );
-
-    }
+    openLink(CONFIG.telegram);
 
 };
+
+// ==========================
+// DONATE
+// ==========================
 
 openDonate.onclick=()=>{
 
-    donatePopup.style.display="flex";
-
-}
-
-closeDonate.onclick=()=>{
-
-    donatePopup.style.display="none";
-
-}
-
-donateButton.onclick=(e)=>{
-
-    e.preventDefault();
-
-    if(CONFIG.donate){
-
-        window.open(
-            CONFIG.donate,
-            "_blank"
-        );
-
-    }
+    donateOverlay.style.display="flex";
 
 };
 
+closeDonate.onclick=()=>{
+
+    donateOverlay.style.display="none";
+
+};
+
+goDonate.onclick=(e)=>{
+
+    e.preventDefault();
+
+    openLink(CONFIG.donate);
+
+};
+
+// ==========================
+// SEND DONATION
+// ==========================
+
 async function sendDonation(){
 
-    const nickname=document
-    .getElementById("nickname")
-    .value.trim();
+    if(
 
-    const amount=document
-    .getElementById("amount")
-    .value.trim();
+        nickname.value.trim()===""
 
-    const visible=document
-    .getElementById("showName")
-    .checked;
-
-    if(!nickname){
+    ){
 
         alert("Введіть свій нік ❤️");
+
         return;
 
     }
 
-    if(!amount){
+    if(
+
+        amount.value.trim()===""
+
+    ){
 
         alert("Введіть суму ❤️");
+
         return;
 
     }
 
     try{
 
-        const response=await fetch(
+        const response=
+
+        await fetch(
 
             "/api/donations",
 
@@ -159,14 +193,18 @@ async function sendDonation(){
                 method:"POST",
 
                 headers:{
+
                     "Content-Type":"application/json"
+
                 },
 
                 body:JSON.stringify({
 
-                    nickname,
-                    amount,
-                    visible
+                    nickname:nickname.value.trim(),
+
+                    amount:amount.value.trim(),
+
+                    visible:showName.checked
 
                 })
 
@@ -174,88 +212,56 @@ async function sendDonation(){
 
         );
 
-        const result=await response.json();
+        const result=
+
+        await response.json();
 
         if(result.success){
 
-            alert(
+            nickname.value="";
 
-"❤️ Дякуємо!
+            amount.value="";
 
-Після перевірки адміністрацією
-твій донат з'явиться
-на сайті."
-
-            );
-
-            document
-            .getElementById("nickname")
-            .value="";
-
-            document
-            .getElementById("amount")
-            .value="";
-
-            donatePopup.style.display="none";
+            donateOverlay.style.display="none";
 
             loadSupporters();
 
-        }else{
-
-            alert(
-
-"Не вдалося відправити форму."
-
-            );
+            alert("❤️ Дякуємо за підтримку Мартіна!");
 
         }
 
-    }catch(e){
+    }catch(error){
 
-        console.log(e);
+        console.log(error);
 
-        alert(
-
-"Помилка з'єднання із сервером."
-
-        );
+        alert("Помилка відправки.");
 
     }
 
 }
 
 sendDonate.onclick=sendDonation;
-
-
+// ==========================
+// LOAD SUPPORTERS
+// ==========================
 
 async function loadSupporters(){
 
     try{
 
-        const response=await fetch(
+        const response=await fetch("/api/donations");
 
-            "/api/donations"
+        const data=await response.json();
 
-        );
+        friendsList.innerHTML="";
 
-        const list=await response.json();
+        if(data.length===0){
 
-        const box=document.getElementById(
-
-            "friendsList"
-
-        );
-
-        box.innerHTML="";
-
-        if(!list.length){
-
-            box.innerHTML=`
+            friendsList.innerHTML=`
 
 <div class="empty">
 
-Поки що тут
-нікого немає ❤️
+Поки що тут тихо ❤️
 
 </div>
 
@@ -265,40 +271,96 @@ async function loadSupporters(){
 
         }
 
-        list.forEach(item=>{
+        data.forEach(item=>{
 
-            if(!item.visible)return;
+            if(!item.visible) return;
 
-            const div=document.createElement("div");
+            const card=document.createElement("div");
 
-            div.className="supportItem";
+            card.className="supportItem";
 
-            div.innerHTML=`
+            card.innerHTML=`
 
 <strong>
 
-${item.nickname}
+🐾 ${item.nickname}
 
 </strong>
 
 <span>
 
-${item.amount} грн
+❤️ ${item.amount} грн
 
 </span>
 
 `;
 
-            box.appendChild(div);
+            friendsList.appendChild(card);
 
         });
 
-    }catch(e){
+    }
 
-        console.log(e);
+    catch(error){
+
+        console.log(error);
 
     }
 
 }
 
+// ==========================
+// START
+// ==========================
+
 loadSupporters();
+
+// ==========================
+// SMALL EFFECTS
+// ==========================
+
+document.querySelectorAll(".card").forEach(card=>{
+
+    card.addEventListener("touchstart",()=>{
+
+        card.style.transform="scale(.97)";
+
+    });
+
+    card.addEventListener("touchend",()=>{
+
+        setTimeout(()=>{
+
+            card.style.transform="";
+
+        },120);
+
+    });
+
+});
+
+// ==========================
+// PHOTO EFFECT
+// ==========================
+
+const heroPhoto=document.querySelector(".heroPhoto img");
+
+if(heroPhoto){
+
+    let zoom=true;
+
+    setInterval(()=>{
+
+        heroPhoto.style.transform=
+
+        zoom
+
+        ? "scale(1.03)"
+
+        : "scale(1)";
+
+        zoom=!zoom;
+
+    },3500);
+
+}
