@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Мартін 🐾</title>
+
+<meta
+name="theme-color"
+content="#F7E8D3">
+
+<link
+rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link
+rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<!-- ========= POPUP ========= -->
+
+<div
+class="welcome-overlay"
+id="welcomeOverlay">
+
+<div
+class="welcome-card">
+
+<div class="paw">
+
+🐾
+
+</div>
+
+<h2>
+
+Гав-гав!
+
+</h2>
+
+<p>
+
+Я <b>Мартін</b> ❤️
+
+<br><br>
+
+Я той самий хвостик,
+який дуже любить
+гуляти,
+гратися,
+дарувати гарний настрій
+та веселити всіх
+своїми пригодами 🐶
+
+</p>
+
+<div class="popup-buttons">
+
+<button
+id="popupGo">
+
+Перейти
+
+</button>
+
+<button
+id="popupClose">
+
+Закрити
+
+</button>
+
+<button
+id="popupNever">
+
+Більше не показувати
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ========= HEADER ========= -->
+
+<div class="page">
+
+<section class="hero">
+
+<div class="hero-glow"></div>
+
+<div class="photo-wrapper">
+
+<img
+src="images/martin.jpg"
+alt="Martin"
+id="martinPhoto">
+
+</div>
+
+<h1>
+
+МАРТІН
+
+</h1>
+
+<h3>
+
+Офіційна сторінка
+мого маленького хвостика ❤️
+
+</h3>
+
+<p class="heroText">
+
+Тут мої пригоди,
+смішні моменти,
+улюблені відео
+та багато позитиву 🐾
+
+</p>
+
+<div class="buttons">
+  <a
+class="link-card tiktok"
+id="tiktokBtn"
+href="#">
+
+<div class="icon">
+
+🎵
+
+</div>
+
+<div class="text">
+
+<h4>TikTok</h4>
+
+<span>
+Усі нові відео
+</span>
+
+</div>
+
+<div class="arrow">
+
+→
+
+</div>
+
+</a>
+
+
+<a
+class="link-card instagram"
+id="instagramBtn"
+href="#">
+
+<div class="icon">
+
+📸
+
+</div>
+
+<div class="text">
+
+<h4>Instagram</h4>
+
+<span>
+Фото та історії
+</span>
+
+</div>
+
+<div class="arrow">
+
+→
+
+</div>
+
+</a>
+
+
+<a
+class="link-card youtube"
+id="youtubeBtn"
+href="#">
+
+<div class="icon">
+
+▶️
+
+</div>
+
+<div class="text">
+
+<h4>YouTube</h4>
+
+<span>
+Повні відео
+</span>
+
+</div>
+
+<div class="arrow">
+
+→
+
+</div>
+
+</a>
+
+
+<a
+class="link-card telegram"
+id="telegramBtn"
+href="#">
+
+<div class="icon">
+
+✈️
+
+</div>
+
+<div class="text">
+
+<h4>Telegram</h4>
+
+<span>
+Не пропускай новини
+</span>
+
+</div>
+
+<div class="arrow">
+
+→
+
+</div>
+
+</a>
+
+
+<button
+class="donateCard"
+id="openDonate">
+
+<div class="donateLeft">
+
+❤️
+
+</div>
+
+<div class="donateCenter">
+
+<h4>
+
+Підтримати Мартіна
+
+</h4>
+
+<span>
+
+Допоможи створювати ще більше
+цікавих відео 🐾
+
+</span>
+
+</div>
+
+<div class="arrow">
+
+→
+
+</div>
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<section class="friends">
+
+<h2>
+
+❤️ Наші друзі
+
+</h2>
+
+<p>
+
+Дякуємо кожному,
+хто підтримує
+Мартіна 🐾
+
+</p>
+
+<div
+id="friendsList"
+class="friendsList">
+
+<div class="empty">
+
+Поки що тут
+нікого немає ❤️
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+© MARTIN
+
+</footer>
+
+</div>
+
+
+
+<!-- DONATE POPUP -->
+
+<div
+class="donateOverlay"
+id="donateOverlay">
+
+<div
+class="donateWindow">
+
+<div class="donateDog">
+
+🐶
+
+</div>
+
+<h2>
+
+Підтримати Мартіна ❤️
+
+</h2>
+
+<p>
+
+Кожна підтримка допомагає
+створювати нові відео,
+розвивати сторінку
+та дарувати ще більше
+гарного настрою 🐾
+
+</p>
+
+<a
+class="goDonate"
+id="goDonate"
+href="#"
+target="_blank">
+
+Перейти до банки ❤️
+
+</a>
+
+<input
+
+id="nickname"
+
+placeholder="Ваш нік">
+
+<input
+
+id="amount"
+
+placeholder="Сума">
+
+<label class="showMe">
+
+<input
+
+type="checkbox"
+
+checked
+
+id="showName">
+
+Показувати мене
+на сайті
+
+</label>
+
+<button
+
+id="sendDonate">
+
+Я вже підтримав ❤️
+
+</button>
+
+<button
+
+id="closeDonate">
+
+Закрити
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
