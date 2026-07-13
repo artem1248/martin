@@ -953,3 +953,50 @@ border-radius:28px;
 }
 
 }
+.supportItem{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+margin-bottom:12px;
+
+background:white;
+
+border-radius:18px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+font-size:17px;
+
+font-weight:600;
+
+color:#5d402b;
+
+animation:fadeUp .4s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
