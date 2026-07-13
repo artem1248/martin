@@ -4,60 +4,86 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Мартін 🐾</title>
 
-<meta
-name="theme-color"
-content="#F7E8D3">
+<meta name="theme-color" content="#F6E6C8">
 
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!-- ========= POPUP ========= -->
+<!-- ===========================
+LOADING
+=========================== -->
 
-<div
-class="welcome-overlay"
-id="welcomeOverlay">
+<div id="loader">
 
-<div
-class="welcome-card">
-  <button class="popupX" id="popupClose">
-
-✕
-
-</button>
-
-<div class="paw">
+<div class="loaderLogo">
 
 🐾
 
 </div>
 
+<h1>
+
+Мартін
+
+</h1>
+
+<p>
+
+Loading...
+
+</p>
+
+<div class="pawLoading">
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+</div>
+
+</div>
+
+<!-- ===========================
+WELCOME
+=========================== -->
+
+<div class="welcomeOverlay" id="welcomeOverlay">
+
+<div class="welcomeCard">
+
+<button class="closePopup" id="popupClose">
+
+✕
+
+</button>
+
+<div class="welcomeDog">
+
+🐶
+
+</div>
+
 <h2>
 
-Гав-гав!
+Привіт!
 
 </h2>
 
@@ -67,32 +93,19 @@ class="welcome-card">
 
 <br><br>
 
-Я той самий хвостик,
-який дуже любить
-гуляти,
-гратися,
-дарувати гарний настрій
-та веселити всіх
-своїми пригодами 🐶
+Ласкаво прошу
+до мого маленького світу.
+
+Тут багато веселих пригод,
+відео,
+історій
+та гарного настрою 🐾
 
 </p>
 
-<div class="popup-buttons">
+<button id="popupNever">
 
-
-</button>
-
-<button
-id="popupClose">
-
-Закрити
-
-</button>
-
-<button
-id="popupNever">
-
-Більше не показувати
+🐾 Почати знайомство
 
 </button>
 
@@ -100,22 +113,21 @@ id="popupNever">
 
 </div>
 
-</div>
-
-<!-- ========= HEADER ========= -->
+<!-- ===========================
+MAIN
+=========================== -->
 
 <div class="page">
 
 <section class="hero">
 
-<div class="hero-glow"></div>
+<div class="heroGlow"></div>
 
-<div class="photo-wrapper">
+<div class="heroPhoto">
 
 <img
 src="images/martin.jpg"
-alt="Martin"
-id="martinPhoto">
+alt="Martin">
 
 </div>
 
@@ -125,45 +137,44 @@ id="martinPhoto">
 
 </h1>
 
-<h3>
+<p class="subtitle">
 
-Офіційна сторінка
-мого маленького хвостика ❤️
+Маленький коргі.
 
-</h3>
-
-<p class="heroText">
-
-Тут мої пригоди,
-смішні моменти,
-улюблені відео
-та багато позитиву 🐾
+Великі пригоди ❤️
 
 </p>
 
-<div class="buttons">
-  <a
-class="link-card tiktok"
+<div class="socialCards">
+
+<a
+class="card tiktok"
 id="tiktokBtn"
 href="#">
 
-<div class="icon">
+<div class="cardIcon">
 
 🎵
 
 </div>
 
-<div class="text">
+<div class="cardText">
 
-<h4>TikTok</h4>
+<h3>
 
-<span>
-Усі нові відео
-</span>
+TikTok
+
+</h3>
+
+<p>
+
+Нові відео щодня
+
+</p>
 
 </div>
 
-<div class="arrow">
+<div class="go">
 
 →
 
@@ -171,59 +182,64 @@ href="#">
 
 </a>
 
-
 <a
-class="link-card instagram"
+class="card instagram"
 id="instagramBtn"
 href="#">
 
-<div class="icon">
+<div class="cardIcon">
 
 📸
 
 </div>
 
-<div class="text">
+<div class="cardText">
 
-<h4>Instagram</h4>
+<h3>
 
-<span>
+Instagram
+
+</h3>
+
+<p>
+
 Фото та історії
-</span>
+
+</p>
 
 </div>
 
-<div class="arrow">
+<div class="go">
 
 →
-
-</div>
-
-</a>
-
-
 <a
-class="link-card youtube"
+class="card youtube"
 id="youtubeBtn"
 href="#">
 
-<div class="icon">
+<div class="cardIcon">
 
 ▶️
 
 </div>
 
-<div class="text">
+<div class="cardText">
 
-<h4>YouTube</h4>
+<h3>
 
-<span>
-Повні відео
-</span>
+YouTube
+
+</h3>
+
+<p>
+
+Повні відео та Shorts
+
+</p>
 
 </div>
 
-<div class="arrow">
+<div class="go">
 
 →
 
@@ -231,29 +247,34 @@ href="#">
 
 </a>
 
-
 <a
-class="link-card telegram"
+class="card telegram"
 id="telegramBtn"
 href="#">
 
-<div class="icon">
+<div class="cardIcon">
 
 ✈️
 
 </div>
 
-<div class="text">
+<div class="cardText">
 
-<h4>Telegram</h4>
+<h3>
 
-<span>
-Не пропускай новини
-</span>
+Telegram
+
+</h3>
+
+<p>
+
+Новини та моменти дня
+
+</p>
 
 </div>
 
-<div class="arrow">
+<div class="go">
 
 →
 
@@ -261,35 +282,33 @@ href="#">
 
 </a>
 
-
 <button
-class="donateCard"
+class="card donate"
 id="openDonate">
 
-<div class="donateLeft">
+<div class="cardIcon">
 
 ❤️
 
 </div>
 
-<div class="donateCenter">
+<div class="cardText">
 
-<h4>
+<h3>
 
 Підтримати Мартіна
 
-</h4>
+</h3>
 
-<span>
+<p>
 
-Допоможи створювати ще більше
-цікавих відео 🐾
+Допоможи розвитку сторінки
 
-</span>
+</p>
 
 </div>
 
-<div class="arrow">
+<div class="go">
 
 →
 
@@ -301,13 +320,15 @@ id="openDonate">
 
 </section>
 
+<!-- ===========================
+SUPPORTERS
+=========================== -->
 
-
-<section class="friends">
+<section class="supportSection">
 
 <h2>
 
-❤️ Наші друзі
+🐾 Наші друзі
 
 </h2>
 
@@ -315,18 +336,17 @@ id="openDonate">
 
 Дякуємо кожному,
 хто підтримує
-Мартіна 🐾
+Мартіна ❤️
 
 </p>
 
 <div
 id="friendsList"
-class="friendsList">
+class="supportList">
 
 <div class="empty">
 
-Поки що тут
-нікого немає ❤️
+Поки що тут тихо ❤️
 
 </div>
 
@@ -334,28 +354,28 @@ class="friendsList">
 
 </section>
 
-
-
 <footer>
 
-© MARTIN
+Made with ❤️ by Martin
 
 </footer>
 
 </div>
 
-
-
-<!-- DONATE POPUP -->
+<!-- ===========================
+DONATE
+=========================== -->
 
 <div
 class="donateOverlay"
 id="donateOverlay">
 
 <div
-class="donateWindow">
+class="donateCard">
+</div>
 
-<div class="donateDog">
+</a> 
+  <div class="donateDog">
 
 🐶
 
@@ -370,10 +390,10 @@ class="donateWindow">
 <p>
 
 Кожна підтримка допомагає
-створювати нові відео,
-розвивати сторінку
-та дарувати ще більше
-гарного настрою 🐾
+створювати ще більше
+цікавих відео,
+нових пригод
+та щасливих моментів 🐾
 
 </p>
 
@@ -383,47 +403,38 @@ id="goDonate"
 href="#"
 target="_blank">
 
-Перейти до банки ❤️
+💛 Перейти до банки
 
 </a>
 
 <input
-
 id="nickname"
-
 placeholder="Ваш нік">
 
 <input
-
 id="amount"
-
-placeholder="Сума">
+placeholder="Сума донату">
 
 <label class="showMe">
 
 <input
-
 type="checkbox"
-
 checked
-
 id="showName">
 
 Показувати мене
-на сайті
+у списку друзів ❤️
 
 </label>
 
 <button
-
 id="sendDonate">
 
-Я вже підтримав ❤️
+🐾 Я вже підтримав
 
 </button>
 
 <button
-
 id="closeDonate">
 
 Закрити
@@ -434,8 +445,25 @@ id="closeDonate">
 
 </div>
 
+<!-- ===========================
+FLOATING PAWS
+=========================== -->
 
+<div class="floatingPaws">
 
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+<span>🐾</span>
+
+</div>
 <script src="config.js"></script>
 
 <script src="script.js"></script>
