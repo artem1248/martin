@@ -48,7 +48,9 @@ popupGo.onclick=()=>{
 
 }
 
-tiktokBtn.onclick=()=>{
+tiktokBtn.onclick=(e)=>{
+
+    e.preventDefault();
 
     if(CONFIG.tiktok){
 
@@ -59,9 +61,11 @@ tiktokBtn.onclick=()=>{
 
     }
 
-}
+};
 
-instagramBtn.onclick=()=>{
+instagramBtn.onclick=(e)=>{
+
+    e.preventDefault();
 
     if(CONFIG.instagram){
 
@@ -72,9 +76,11 @@ instagramBtn.onclick=()=>{
 
     }
 
-}
+};
 
-youtubeBtn.onclick=()=>{
+youtubeBtn.onclick=(e)=>{
+
+    e.preventDefault();
 
     if(CONFIG.youtube){
 
@@ -85,9 +91,11 @@ youtubeBtn.onclick=()=>{
 
     }
 
-}
+};
 
-telegramBtn.onclick=()=>{
+telegramBtn.onclick=(e)=>{
+
+    e.preventDefault();
 
     if(CONFIG.telegram){
 
@@ -98,7 +106,7 @@ telegramBtn.onclick=()=>{
 
     }
 
-}
+};
 
 openDonate.onclick=()=>{
 
@@ -112,7 +120,20 @@ closeDonate.onclick=()=>{
 
 }
 
-donateButton.onclick=()=>{
+donateButton.onclick=(e)=>{
+
+    e.preventDefault();
+
+    if(CONFIG.donate){
+
+        window.open(
+            CONFIG.donate,
+            "_blank"
+        );
+
+    }
+
+};
 
     if(CONFIG.donate){
 
