@@ -1,5 +1,4 @@
 const popup = document.getElementById("welcomeOverlay");
-const popupGo = document.getElementById("popupGo");
 const popupClose = document.getElementById("popupClose");
 const popupNever = document.getElementById("popupNever");
 
@@ -33,20 +32,6 @@ popupNever.onclick=()=>{
 
 }
 
-popupGo.onclick=()=>{
-
-    if(CONFIG.tiktok){
-
-        window.open(
-            CONFIG.tiktok,
-            "_blank"
-        );
-
-    }
-
-    popup.style.display="none";
-
-}
 
 tiktokBtn.onclick=(e)=>{
 
@@ -135,16 +120,6 @@ donateButton.onclick=(e)=>{
 
 };
 
-    if(CONFIG.donate){
-
-        window.open(
-            CONFIG.donate,
-            "_blank"
-        );
-
-    }
-
-} 
 async function sendDonation(){
 
     const nickname=document
