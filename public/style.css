@@ -583,6 +583,7 @@ z-index:9999;
 
 .welcome-card,
 .donateWindow{
+   position:relative;
 
 width:100%;
 
@@ -998,5 +999,40 @@ opacity:1;
 transform:none;
 
 }
+
+}
+.popupX{
+
+position:absolute;
+
+top:16px;
+
+right:16px;
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.popupX:hover{
+
+transform:scale(1.08);
+
+background:#ffd978;
 
 }
