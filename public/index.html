@@ -1,23 +1,27 @@
 <!DOCTYPE html>
+
 <html lang="uk">
 
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Мартін 🐾</title>
 
 <meta
 name="theme-color"
-content="#F8F4EC">
+content="#1B1714">
 
-<link rel="preconnect"
+<link
+rel="preconnect"
 href="https://fonts.googleapis.com">
 
-<link rel="preconnect"
+<link
+rel="preconnect"
 href="https://fonts.gstatic.com"
 crossorigin>
 
@@ -33,45 +37,77 @@ href="style.css">
 
 <body>
 
-<div class="app">
+<!-- HERO -->
 
-<header class="header">
+<section class="hero">
 
-<div class="logo">
+<div class="heroOverlay"></div>
 
-<div class="logoCircle">
+<img
+
+class="heroBackground"
+
+src="images/hero.jpg"
+
+alt="Martin">
+
+<header class="heroHeader">
+
+<div class="brand">
+
+<div class="brandLogo">
 
 🐾
 
 </div>
 
-<span>
+<div>
 
-Martin
+<h3>
 
-</span>
+МАРТІН
+
+</h3>
+
+<p>
+
+маленький коргі
+
+</p>
 
 </div>
 
+</div>
+
+<div class="headerButtons">
+
 <button
-class="menuBtn"
-id="menuBtn">
+
+id="supportButton"
+
+class="supportBtn">
+
+❤️
+
+Підтримати
+
+</button>
+
+<button
+
+id="menuButton"
+
+class="menuBtn">
 
 ☰
 
 </button>
 
+</div>
+
 </header>
 
-<section class="hero">
-
-<div class="heroInfo">
-
-<span class="miniTitle">
-
-МАЛЕНЬКИЙ КОРГІ
-
-</span>
+<div class="heroContent">
 
 <h1>
 
@@ -85,21 +121,23 @@ id="menuBtn">
 
 </h2>
 
+<div class="heroLine"></div>
+
 <p>
 
-Маленький хвостик,
-який дуже любить
-гуляти,
-гратися
-та дарувати гарний настрій.
+Я маленький коргі
+з великим серцем.
+
+Люблю пригоди,
+смаколики
+та нових друзів!
 
 </p>
-
-<div class="heroButtons">
+<div class="socialButtons">
 
 <a
 id="tiktokBtn"
-class="heroButton tiktok"
+class="socialButton tiktok"
 href="#">
 
 TikTok
@@ -108,7 +146,7 @@ TikTok
 
 <a
 id="instagramBtn"
-class="heroButton instagram"
+class="socialButton instagram"
 href="#">
 
 Instagram
@@ -117,7 +155,7 @@ Instagram
 
 <a
 id="youtubeBtn"
-class="heroButton youtube"
+class="socialButton youtube"
 href="#">
 
 YouTube
@@ -126,7 +164,7 @@ YouTube
 
 <a
 id="telegramBtn"
-class="heroButton telegram"
+class="socialButton telegram"
 href="#">
 
 Telegram
@@ -137,146 +175,154 @@ Telegram
 
 </div>
 
-<div class="heroImage">
-
-<img
-src="images/hero.jpg"
-alt="Martin">
-
-</div>
-
-</section>
-<!-- ========= FEATURES ========= -->
-
-<section class="features">
-
-<div class="feature">
-
-<div class="featureTop">
-
-<span class="featureEmoji">🐾</span>
-
-</div>
-
-<h3>Любить гуляти</h3>
-
-<p>
-
-Довгі прогулянки,
-нові місця
-та пригоди.
-
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="featureTop">
-
-<span class="featureEmoji">🦴</span>
-
-</div>
-
-<h3>Смаколики</h3>
-
-<p>
-
-Найкраща нагорода
-після прогулянки.
-
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="featureTop">
-
-<span class="featureEmoji">❤️</span>
-
-</div>
-
-<h3>Дружній</h3>
-
-<p>
-
-Люблю людей,
-увагу
-та обійми.
-
-</p>
-
-</div>
-
-<div class="feature">
-
-<div class="featureTop">
-
-<span class="featureEmoji">🎥</span>
-
-</div>
-
-<h3>Нові відео</h3>
-
-<p>
-
-Нові пригоди
-майже щотижня.
-
-</p>
-
-</div>
-
 </section>
 
-<!-- ========= ABOUT ========= -->
+<!-- ========= ACCORDION ========= -->
 
-<section class="about" id="about">
+<section class="accordionSection">
 
-<div class="aboutImage">
+<button
 
-<img
-src="images/about.jpg"
-alt="Martin">
+id="aboutToggle"
 
-</div>
+class="accordionButton">
 
-<div class="aboutContent">
-
-<span class="aboutMini">
-
-Про мене
-
-</span>
+<div>
 
 <h2>
 
-Я Мартін 🐶
+🐾 Що любить Мартін?
 
 </h2>
 
 <p>
 
-Веселий,
-енергійний
-та дуже допитливий коргі.
-
-Люблю подорожі,
-ігри,
-нових друзів
-і бути в центрі уваги.
+Натисни,
+щоб дізнатися більше
 
 </p>
 
 </div>
 
+<span
+id="accordionArrow">
+
+⌄
+
+</span>
+
+</button>
+
+<div
+
+id="accordionContent"
+
+class="accordionContent">
+
+<div class="loveGrid">
+
+<div class="loveCard">
+
+<img
+src="images/icons/walk.png"
+alt="">
+
+<h3>
+
+Прогулянки
+
+</h3>
+
+</div>
+
+<div class="loveCard">
+
+<img
+src="images/icons/bone.png"
+alt="">
+
+<h3>
+
+Смаколики
+
+</h3>
+
+</div>
+
+<div class="loveCard">
+
+<img
+src="images/icons/happy.png"
+alt="">
+
+<h3>
+
+Гарний настрій
+
+</h3>
+
+</div>
+
+<div class="loveCard">
+
+<img
+src="images/icons/friends.png"
+alt="">
+
+<h3>
+
+Нові друзі
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
+<!-- ========= LAST PHOTOS ========= -->
+
+<section class="photosSection">
+
+<div class="sectionHeader">
+
+<h2>
+
+Останні фото
+
+</h2>
+
+<a
+
+href="gallery.html"
+
+class="sectionLink">
+
+Усі фото
+
+</a>
+
+</div>
+
+<div
+
+class="photoSlider"
+
+id="photoSlider">
+
+<!-- Фото буде додавати script.js -->
+
+</div>
+
+</section>
+
 <!-- ========= LAST VIDEOS ========= -->
 
-<section class="videos">
+<section class="videosSection">
 
-<div class="sectionTitle">
+<div class="sectionHeader">
 
 <h2>
 
@@ -284,49 +330,25 @@ alt="Martin">
 
 </h2>
 
-<a href="#">
+<a
 
-Переглянути всі
+href="videos.html"
 
-</a>
+class="sectionLink">
 
-</div>
-
-<div
-class="videoList"
-id="videoList">
-
-<!-- script.js -->
-
-</div>
-
-</section>
-
-<!-- ========= PHOTO GALLERY ========= -->
-
-<section class="gallery">
-
-<div class="sectionTitle">
-
-<h2>
-
-Фотографії
-
-</h2>
-
-<a href="#">
-
-Всі фото
+Усі відео
 
 </a>
 
 </div>
 
 <div
-class="galleryList"
-id="galleryList">
 
-<!-- script.js -->
+class="videoSlider"
+
+id="videoSlider">
+
+<!-- Відео буде додавати script.js -->
 
 </div>
 
@@ -334,30 +356,31 @@ id="galleryList">
 
 <!-- ========= SUPPORT ========= -->
 
-<section
-class="supportBlock"
-id="support">
+<section class="supportSection">
 
-<div class="supportInfo">
+<div class="supportCard">
+
+<div class="supportText">
 
 <h2>
 
-Підтримати Мартіна ❤️
+❤️ Підтримати Мартіна
 
 </h2>
 
 <p>
 
 Кожна підтримка допомагає
-знімати нові відео,
-робити більше фото
-та радувати вас
-новими пригодами.
+створювати нові відео,
+фотографії
+та нові пригоди.
 
 </p>
 
 <button
+
 id="openDonate"
+
 class="supportButton">
 
 Підтримати
@@ -366,17 +389,24 @@ class="supportButton">
 
 </div>
 
+<div class="supportPhoto">
+
 <img
+
 src="images/support.jpg"
-class="supportImage"
+
 alt="Martin">
+
+</div>
+
+</div>
 
 </section>
 <!-- ========= FRIENDS ========= -->
 
-<section class="friends">
+<section class="friendsSection">
 
-<div class="sectionTitle">
+<div class="sectionHeader">
 
 <h2>
 
@@ -384,17 +414,13 @@ alt="Martin">
 
 </h2>
 
-<a href="#">
-
-Всі
-
-</a>
-
 </div>
 
 <div
-class="friendsGrid"
-id="friendsList">
+
+id="friendsList"
+
+class="friendsList">
 
 <!-- script.js -->
 
@@ -402,18 +428,21 @@ id="friendsList">
 
 </section>
 
-<!-- ========= DONATE POPUP ========= -->
+<!-- ========= DONATE ========= -->
 
 <div
+
 class="donateOverlay"
+
 id="donateOverlay">
 
-<div
-class="donateModal">
+<div class="donateModal">
 
 <button
+
 id="closeDonate"
-class="closeButton">
+
+class="closeDonate">
 
 ✕
 
@@ -431,7 +460,7 @@ class="closeButton">
 що допомагаєш
 розвивати сторінку
 та створювати
-нові пригоди 🐾
+нові пригоди.
 
 </p>
 
@@ -439,13 +468,13 @@ class="closeButton">
 
 id="goDonate"
 
-class="donateLink"
-
 href="#"
+
+class="donateLink"
 
 target="_blank">
 
-💛 Перейти до банки
+Перейти до банки
 
 </a>
 
@@ -461,7 +490,7 @@ id="amount"
 
 placeholder="Сума">
 
-<label class="showName">
+<label class="checkbox">
 
 <input
 
@@ -482,9 +511,45 @@ id="sendDonate"
 
 class="sendDonate">
 
-❤️ Я вже підтримав
+Я вже підтримав ❤️
 
 </button>
+
+</div>
+
+</div>
+
+<!-- ========= MENU ========= -->
+
+<div
+
+id="sideMenu"
+
+class="sideMenu">
+
+<div class="sideMenuContent">
+
+<button
+
+id="closeMenu"
+
+class="closeMenu">
+
+✕
+
+</button>
+
+<h2>
+
+Незабаром...
+
+</h2>
+
+<div class="dots">
+
+•••
+
+</div>
 
 </div>
 
@@ -493,77 +558,87 @@ class="sendDonate">
 
 <footer class="footer">
 
-<div class="footerBrand">
-
 <div class="footerLogo">
 
 🐾
 
-</div>
-
-<div>
-
-<h3>
+<span>
 
 МАРТІН
 
-</h3>
+</span>
+
+</div>
 
 <p>
 
-Маленький коргі.
-Великі пригоди ❤️
-
-</p>
-
-</div>
-
-</div>
-
-<div class="footerSocial">
-
-<a
-id="footerTikTok"
-href="#">
-
-TikTok
-
-</a>
-
-<a
-id="footerInstagram"
-href="#">
-
-Instagram
-
-</a>
-
-<a
-id="footerYoutube"
-href="#">
-
-YouTube
-
-</a>
-
-<a
-id="footerTelegram"
-href="#">
-
-Telegram
-
-</a>
-
-</div>
-
-<p class="copyright">
-
-© 2026 Martin.
-Усі права захищені.
+Дякуємо,
+що слідкуєте
+за пригодами
+нашого маленького хвостика ❤️
 
 </p>
 
 </footer>
+<script src="config.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+<!-- ========= PHOTO VIEWER ========= -->
+
+<div
+id="photoViewer"
+class="photoViewer">
+
+<button
+id="closeViewer"
+class="viewerClose">
+
+✕
+
+</button>
+
+<img
+id="viewerImage"
+src=""
+alt="">
+
+</div>
+
+<!-- ========= LOADER ========= -->
+
+<div
+id="loader"
+class="loader">
+
+<div class="loaderContent">
+
+<div class="loaderPaws">
+
+🐾 🐾 🐾 🐾
+
+</div>
+
+<h2>
+
+МАРТІН
+
+</h2>
+
+<p>
+
+Завантаження...
+
+</p>
+
+</div>
+
+</div>
+<!-- ========= SCRIPTS ========= -->
+
 <script src="config.js"></script>
 
 <script src="script.js"></script>
