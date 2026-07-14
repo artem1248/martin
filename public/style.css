@@ -1790,8 +1790,8 @@ color:#241C16;
 
 position:fixed;
 
-width:20px;
-height:20px;
+width:28px;
+height:28px;
 opacity:.16;
 
 pointer-events:none;
@@ -1818,13 +1818,13 @@ rotate(-12deg);
 
 20%{
 
-opacity:.18;
+opacity:.38;
 
 }
 
 80%{
 
-opacity:.18;
+opacity:.38;
 
 }
 
