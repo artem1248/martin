@@ -1,72 +1,34 @@
-/* ==========================================
-   MARTIN
-========================================== */
-
 "use strict";
 
 /* ==========================================
    DOM
 ========================================== */
 
-const menuButton =
-document.getElementById("menuButton");
+const menuButton = document.getElementById("menuButton");
+const sideMenu = document.getElementById("sideMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+const closeMenu = document.getElementById("closeMenu");
 
-const sideMenu =
-document.getElementById("sideMenu");
+const supportButton = document.getElementById("supportButton");
+const openDonate = document.getElementById("openDonate");
+const donateOverlay = document.getElementById("donateOverlay");
+const closeDonate = document.getElementById("closeDonate");
+const goDonate = document.getElementById("goDonate");
+const sendDonate = document.getElementById("sendDonate");
 
-const menuOverlay =
-document.getElementById("menuOverlay");
+const accordionButton = document.getElementById("aboutToggle");
+const accordionContent = document.getElementById("accordionContent");
+const accordionArrow = document.getElementById("accordionArrow");
 
-const closeMenu =
-document.getElementById("closeMenu");
+const photoViewer = document.getElementById("photoViewer");
+const viewerImage = document.getElementById("viewerImage");
+const closeViewer = document.getElementById("closeViewer");
 
-const supportButton =
-document.getElementById("supportButton");
+const loader = document.getElementById("loader");
 
-const donateOverlay =
-document.getElementById("donateOverlay");
-
-const closeDonate =
-document.getElementById("closeDonate");
-
-const openDonate =
-document.getElementById("openDonate");
-
-const goDonate =
-document.getElementById("goDonate");
-
-const sendDonate =
-document.getElementById("sendDonate");
-
-const accordionButton =
-document.getElementById("aboutToggle");
-
-const accordionContent =
-document.getElementById("accordionContent");
-
-const accordionArrow =
-document.getElementById("accordionArrow");
-
-const photoViewer =
-document.getElementById("photoViewer");
-
-const viewerImage =
-document.getElementById("viewerImage");
-
-const closeViewer =
-document.getElementById("closeViewer");
-
-const loader =
-document.getElementById("loader");
-
-const photoSlider =
-document.getElementById("photoSlider");
-
-const videoSlider =
-document.getElementById("videoSlider");
-
-const friendsList =
-document.getElementById("friendsList");
+const photoSlider = document.getElementById("photoSlider");
+const videoSlider = document.getElementById("videoSlider");
+const friendsList = document.getElementById("friendsList");
 
 /* ==========================================
    MENU
@@ -74,29 +36,28 @@ document.getElementById("friendsList");
 
 function openMenu(){
 
-sideMenu.classList.add("open");
+    sideMenu.classList.add("open");
+    menuOverlay.classList.add("open");
 
-menuOverlay.classList.add("open");
-
-document.body.style.overflow="hidden";
+    document.body.style.overflow="hidden";
 
 }
 
 function closeSideMenu(){
 
-sideMenu.classList.remove("open");
+    sideMenu.classList.remove("open");
+    menuOverlay.classList.remove("open");
 
-menuOverlay.classList.remove("open");
-
-document.body.style.overflow="";
+    document.body.style.overflow="";
 
 }
 
-menuButton.onclick=openMenu;
+menuButton?.addEventListener("click",openMenu);
 
-closeMenu.onclick=closeSideMenu;
+closeMenu?.addEventListener("click",closeSideMenu);
 
-menuOverlay.onclick=closeSideMenu;
+menuOverlay?.addEventListener("click",closeSideMenu);
+
 /* ==========================================
    DONATE
 ========================================== */
@@ -117,46 +78,30 @@ function closeDonateWindow(){
 
 }
 
-supportButton.addEventListener(
-
+supportButton?.addEventListener(
     "click",
-
     openDonateWindow
-
 );
 
-openDonate.addEventListener(
-
+openDonate?.addEventListener(
     "click",
-
     openDonateWindow
-
 );
 
-closeDonate.addEventListener(
-
+closeDonate?.addEventListener(
     "click",
-
     closeDonateWindow
-
 );
 
-donateOverlay.addEventListener(
+donateOverlay?.addEventListener("click",(event)=>{
 
-    "click",
+    if(event.target===donateOverlay){
 
-    (event)=>{
-
-        if(event.target===donateOverlay){
-
-            closeDonateWindow();
-
-        }
+        closeDonateWindow();
 
     }
 
-);
-
+});
 /* ==========================================
    ACCORDION
 ========================================== */
@@ -169,12 +114,9 @@ function toggleAccordion(){
 
 }
 
-accordionButton.addEventListener(
-
+accordionButton?.addEventListener(
     "click",
-
     toggleAccordion
-
 );
 
 /* ==========================================
@@ -183,94 +125,107 @@ accordionButton.addEventListener(
 
 function openViewer(src){
 
-    viewerImage.src=src;
+    viewerImage.src = src;
 
-    photoViewer.style.display="flex";
+    photoViewer.style.display = "flex";
 
-    document.body.style.overflow="hidden";
+    document.body.style.overflow = "hidden";
 
 }
 
 function closePhotoViewer(){
 
-    photoViewer.style.display="none";
+    photoViewer.style.display = "none";
 
-    viewerImage.src="";
+    viewerImage.src = "";
 
-    document.body.style.overflow="";
+    document.body.style.overflow = "";
 
 }
 
-closeViewer.addEventListener(
-
+closeViewer?.addEventListener(
     "click",
-
     closePhotoViewer
-
 );
 
-photoViewer.addEventListener(
+photoViewer?.addEventListener("click",(event)=>{
 
-    "click",
+    if(event.target===photoViewer){
 
-    (event)=>{
-
-        if(event.target===photoViewer){
-
-            closePhotoViewer();
-
-        }
+        closePhotoViewer();
 
     }
 
-);
+});
 
-/* ==========================================
-   PHOTOS
-========================================== */
 /* ==========================================
    IMAGE PRELOAD
 ========================================== */
 
 function preloadImage(src){
 
-    return new Promise((resolve)=>{
+    return new Promise(resolve=>{
 
-        const img=new Image();
+        const image = new Image();
 
-        img.onload=resolve;
+        image.onload = resolve;
 
-        img.onerror=resolve;
+        image.onerror = resolve;
 
-        img.src=src;
+        image.src = src;
 
     });
 
 }
 
+/* ==========================================
+   LOADER
+========================================== */
+
+window.addEventListener("load",()=>{
+
+    if(!loader) return;
+
+    setTimeout(()=>{
+
+        loader.classList.add("hide");
+
+        setTimeout(()=>{
+
+            loader.remove();
+
+        },500);
+
+    },1200);
+
+});
+/* ==========================================
+   PHOTOS
+========================================== */
+
 async function loadPhotos(){
 
     try{
 
-        const response=await fetch(
-
+        const response = await fetch(
             "data/photos.json"
-
         );
 
-        const photos=await response.json();
+        const photos = await response.json();
 
-        photoSlider.innerHTML="";
+        if(!photoSlider) return;
+
+        photoSlider.innerHTML = "";
 
         for(const photo of photos){
 
             await preloadImage(photo.image);
 
-            const card=document.createElement("div");
+            const card = document.createElement("div");
 
-            card.className="photoCard";
+            card.className = "photoCard";
 
-            card.innerHTML=`
+            card.innerHTML = `
 
 <img
 src="${photo.image}"
@@ -278,13 +233,27 @@ alt="Martin">
 
 `;
 
-            card.onclick=()=>{
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
 
-                openViewer(photo.image);
-
-            };
+            card.addEventListener(
+                "click",
+                ()=>openViewer(photo.image)
+            );
 
             photoSlider.appendChild(card);
+
+            requestAnimationFrame(()=>{
+
+                card.style.transition =
+                    ".35s ease";
+
+                card.style.opacity = "1";
+
+                card.style.transform =
+                    "translateY(0)";
+
+            });
 
         }
 
@@ -292,70 +261,14 @@ alt="Martin">
 
     catch(error){
 
-        console.error(error);
-
-    }
-
-}
-
-    try{
-
-        const response=await fetch(
-
-            "data/photos.json"
-
+        console.error(
+            "Photos:",
+            error
         );
 
-        const photos=await response.json();
-
-        photoSlider.innerHTML="";
-
-        photos.forEach(photo=>{
-
-            const card=document.createElement("div");
-
-            card.className="photoCard";
-
-            card.innerHTML=`
-
-                <img
-                src="${photo.image}"
-                alt="Martin">
-
-            `;
-
-            card.addEventListener(
-
-                "click",
-
-                ()=>openViewer(photo.image)
-
-            );
-           card.style.opacity = "0";
-
-card.style.transform = "translateY(30px)";
-
-            photoSlider.appendChild(card);
-           requestAnimationFrame(()=>{
-
-    card.style.transition = ".45s ease";
-
-    card.style.opacity = "1";
-
-    card.style.transform = "translateY(0)";
-
-});
-
-        });
-
-    }catch(error){
-
-        console.error(error);
-
     }
 
 }
-
 /* ==========================================
    VIDEOS
 ========================================== */
@@ -365,12 +278,12 @@ async function loadVideos(){
     try{
 
         const response = await fetch(
-
             "data/videos.json"
-
         );
 
         const videos = await response.json();
+
+        if(!videoSlider) return;
 
         videoSlider.innerHTML = "";
 
@@ -382,17 +295,13 @@ async function loadVideos(){
 
             card.className = "videoCard";
 
-            card.style.opacity = "0";
-
-            card.style.transform = "translateY(30px)";
-
             card.innerHTML = `
 
-<div class="videoThumb">
+<div class="videoPreview">
 
     <img
     src="${video.image}"
-    alt="">
+    alt="${video.title}">
 
     <div class="videoDuration">
 
@@ -400,41 +309,39 @@ async function loadVideos(){
 
     </div>
 
-    <div class="videoPlay">
+</div>
 
-        ▶
+<div class="videoInfo">
 
-    </div>
+    <h3>
+
+        ${video.title}
+
+    </h3>
+
+    <p>
+
+        ${video.views}
+
+    </p>
 
 </div>
 
-<h3>
-
-${video.title}
-
-</h3>
-
-<p>
-
-${video.views}
-
-</p>
-
 `;
+
+            card.style.opacity = "0";
+            card.style.transform = "translateY(20px)";
 
             if(video.url){
 
-                card.onclick = ()=>{
+                card.addEventListener("click",()=>{
 
                     window.open(
-
                         video.url,
-
                         "_blank"
-
                     );
 
-                };
+                });
 
             }
 
@@ -442,7 +349,7 @@ ${video.views}
 
             requestAnimationFrame(()=>{
 
-                card.style.transition=".45s ease";
+                card.style.transition=".35s ease";
 
                 card.style.opacity="1";
 
@@ -456,71 +363,10 @@ ${video.views}
 
     catch(error){
 
-        console.error(error);
-
-    }
-
-}
-
-    try{
-
-        const response=await fetch(
-
-            "data/videos.json"
-
+        console.error(
+            "Videos:",
+            error
         );
-
-        const videos=await response.json();
-
-        videoSlider.innerHTML="";
-
-        videos.forEach(video=>{
-
-            const card=document.createElement("div");
-
-            card.className="videoCard";
-
-            card.innerHTML=`
-
-<div class="videoPreview">
-
-<img
-src="${video.image}"
-alt="">
-
-<div class="videoDuration">
-
-${video.duration}
-
-</div>
-
-</div>
-
-<div class="videoInfo">
-
-<h3>
-
-${video.title}
-
-</h3>
-
-<p>
-
-${video.views}
-
-</p>
-
-</div>
-
-`;
-
-            videoSlider.appendChild(card);
-
-        });
-
-    }catch(error){
-
-        console.error(error);
 
     }
 
@@ -530,6 +376,8 @@ ${video.views}
 ========================================== */
 
 async function loadSupporters(){
+
+    if(!friendsList) return;
 
     try{
 
@@ -542,24 +390,15 @@ async function loadSupporters(){
         if(!supporters.length){
 
             friendsList.innerHTML = `
-
-<div class="friendCard">
-
-<div class="friendName">
-
-Поки що нікого ❤️
-
-</div>
-
-<div class="friendAmount">
-
-—
-
-</div>
-
-</div>
-
-`;
+                <div class="friendCard">
+                    <div class="friendName">
+                        Поки що нікого ❤️
+                    </div>
+                    <div class="friendAmount">
+                        —
+                    </div>
+                </div>
+            `;
 
             return;
 
@@ -575,19 +414,19 @@ async function loadSupporters(){
 
             card.innerHTML=`
 
-<div class="friendName">
+                <div class="friendName">
 
-${item.nickname}
+                    ${item.nickname}
 
-</div>
+                </div>
 
-<div class="friendAmount">
+                <div class="friendAmount">
 
-${item.amount} грн
+                    ${item.amount} грн
 
-</div>
+                </div>
 
-`;
+            `;
 
             friendsList.appendChild(card);
 
@@ -597,250 +436,75 @@ ${item.amount} грн
 
     catch(error){
 
-        console.error(error);
+        console.error("Supporters:", error);
 
     }
 
 }
-
-/* ==========================================
-   SEND DONATION
-========================================== */
-
-async function sendDonation(){
-
-    const nickname=document
-        .getElementById("nickname")
-        .value
-        .trim();
-
-    const amount=document
-        .getElementById("amount")
-        .value
-        .trim();
-
-    const visible=document
-        .getElementById("showName")
-        .checked;
-
-    if(!nickname){
-
-        alert("Введіть нік ❤️");
-
-        return;
-
-    }
-
-    if(!amount){
-
-        alert("Введіть суму ❤️");
-
-        return;
-
-    }
-
-    try{
-
-        const response=await fetch(
-
-            "/api/donations",
-
-            {
-
-                method:"POST",
-
-                headers:{
-
-                    "Content-Type":"application/json"
-
-                },
-
-                body:JSON.stringify({
-
-                    nickname,
-
-                    amount,
-
-                    visible
-
-                })
-
-            }
-
-        );
-
-        const result=await response.json();
-
-        if(result.success){
-
-            alert(
-
-                "❤️ Дякуємо за підтримку!"
-
-            );
-
-            closeDonateWindow();
-
-            loadSupporters();
-
-        }
-
-        else{
-
-            alert(
-
-                "Помилка відправки."
-
-            );
-
-        }
-
-    }
-
-    catch(error){
-
-        console.error(error);
-
-    }
-
-}
-
-sendDonate.addEventListener(
-
-    "click",
-
-    sendDonation
-
-);
-/* ==========================================
-   LOADER
-========================================== */
-
-window.addEventListener("load", () => {
-
-    if (!loader) return;
-
-    setTimeout(() => {
-
-        loader.classList.add("hide");
-
-        setTimeout(() => {
-
-            loader.remove();
-
-        }, 500);
-
-    }, 1200);
-
-});
 
 /* ==========================================
    SOCIAL LINKS
 ========================================== */
 
-const socials={
-
-    tiktok:CONFIG.tiktok,
-
-    instagram:CONFIG.instagram,
-
-    youtube:CONFIG.youtube,
-
-    telegram:CONFIG.telegram
-
-};
-
 function openSocial(link){
 
     if(!link) return;
 
-    window.open(
-
-        link,
-
-        "_blank"
-
-    );
+    window.open(link,"_blank");
 
 }
 
-document
-.getElementById("tiktokBtn")
-.addEventListener(
+document.getElementById("tiktokBtn")
+    ?.addEventListener("click",e=>{
 
-    "click",
+        e.preventDefault();
 
-    ()=>openSocial(
+        openSocial(CONFIG.tiktok);
 
-        socials.tiktok
+});
 
-    )
+document.getElementById("instagramBtn")
+    ?.addEventListener("click",e=>{
 
-);
+        e.preventDefault();
 
-document
-.getElementById("instagramBtn")
-.addEventListener(
+        openSocial(CONFIG.instagram);
 
-    "click",
+});
 
-    ()=>openSocial(
+document.getElementById("youtubeBtn")
+    ?.addEventListener("click",e=>{
 
-        socials.instagram
+        e.preventDefault();
 
-    )
+        openSocial(CONFIG.youtube);
 
-);
+});
 
-document
-.getElementById("youtubeBtn")
-.addEventListener(
+document.getElementById("telegramBtn")
+    ?.addEventListener("click",e=>{
 
-    "click",
+        e.preventDefault();
 
-    ()=>openSocial(
+        openSocial(CONFIG.telegram);
 
-        socials.youtube
+});
 
-    )
+goDonate?.addEventListener("click",()=>{
 
-);
+    if(CONFIG.donate){
 
-document
-.getElementById("telegramBtn")
-.addEventListener(
+        window.open(
 
-    "click",
+            CONFIG.donate,
 
-    ()=>openSocial(
+            "_blank"
 
-        socials.telegram
-
-    )
-
-);
-
-goDonate.addEventListener(
-
-    "click",
-
-    ()=>{
-
-        if(CONFIG.donate){
-
-            window.open(
-
-                CONFIG.donate,
-
-                "_blank"
-
-            );
-
-        }
+        );
 
     }
 
-);
+});
 
 /* ==========================================
    INIT
