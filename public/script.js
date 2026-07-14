@@ -1,178 +1,462 @@
-// ==========================
-// ELEMENTS
-// ==========================
+/* ==========================================
+   MARTIN
+========================================== */
 
-const loader = document.getElementById("loader");
+"use strict";
 
-const popup = document.getElementById("welcomeOverlay");
-const popupClose = document.getElementById("popupClose");
-const popupNever = document.getElementById("popupNever");
+/* ==========================================
+   DOM
+========================================== */
 
-const donateOverlay = document.getElementById("donateOverlay");
-const openDonate = document.getElementById("openDonate");
-const closeDonate = document.getElementById("closeDonate");
+const menuButton =
+document.getElementById("menuButton");
 
-const goDonate = document.getElementById("goDonate");
-const sendDonate = document.getElementById("sendDonate");
+const sideMenu =
+document.getElementById("sideMenu");
 
-const nickname = document.getElementById("nickname");
-const amount = document.getElementById("amount");
-const showName = document.getElementById("showName");
+const menuOverlay =
+document.getElementById("menuOverlay");
 
-const friendsList = document.getElementById("friendsList");
+const closeMenu =
+document.getElementById("closeMenu");
 
-const tiktokBtn = document.getElementById("tiktokBtn");
-const instagramBtn = document.getElementById("instagramBtn");
-const youtubeBtn = document.getElementById("youtubeBtn");
-const telegramBtn = document.getElementById("telegramBtn");
+const supportButton =
+document.getElementById("supportButton");
 
-// ==========================
-// LOADER
-// ==========================
+const donateOverlay =
+document.getElementById("donateOverlay");
 
-window.addEventListener("load", () => {
+const closeDonate =
+document.getElementById("closeDonate");
 
-    setTimeout(() => {
+const openDonate =
+document.getElementById("openDonate");
 
-        loader.style.opacity = "0";
+const goDonate =
+document.getElementById("goDonate");
 
-        setTimeout(() => {
+const sendDonate =
+document.getElementById("sendDonate");
 
-            loader.style.display = "none";
+const accordionButton =
+document.getElementById("aboutToggle");
 
-        },700);
+const accordionContent =
+document.getElementById("accordionContent");
 
-    },1800);
+const accordionArrow =
+document.getElementById("accordionArrow");
 
-});
+const photoViewer =
+document.getElementById("photoViewer");
 
-// ==========================
-// WELCOME
-// ==========================
+const viewerImage =
+document.getElementById("viewerImage");
 
-if(localStorage.getItem("martinPopupHidden")){
+const closeViewer =
+document.getElementById("closeViewer");
 
-    popup.style.display="none";
+const loader =
+document.getElementById("loader");
 
-}
+const photoSlider =
+document.getElementById("photoSlider");
 
-popupClose.onclick=()=>{
+const videoSlider =
+document.getElementById("videoSlider");
 
-    popup.style.display="none";
+const friendsList =
+document.getElementById("friendsList");
 
-}
+/* ==========================================
+   MENU
+========================================== */
 
-popupNever.onclick=()=>{
+function openMenu(){
 
-    localStorage.setItem(
+sideMenu.classList.add("open");
 
-        "martinPopupHidden",
+menuOverlay.classList.add("open");
 
-        "true"
-
-    );
-
-    popup.style.display="none";
-
-};
-
-// ==========================
-// SOCIAL
-// ==========================
-
-function openLink(link){
-
-    if(!link) return;
-
-    window.open(
-
-        link,
-
-        "_blank"
-
-    );
+document.body.style.overflow="hidden";
 
 }
 
-tiktokBtn.onclick=(e)=>{
+function closeSideMenu(){
 
-    e.preventDefault();
+sideMenu.classList.remove("open");
 
-    openLink(CONFIG.tiktok);
+menuOverlay.classList.remove("open");
 
-};
+document.body.style.overflow="";
 
-instagramBtn.onclick=(e)=>{
+}
 
-    e.preventDefault();
+menuButton.onclick=openMenu;
 
-    openLink(CONFIG.instagram);
+closeMenu.onclick=closeSideMenu;
 
-};
+menuOverlay.onclick=closeSideMenu;
+/* ==========================================
+   DONATE
+========================================== */
 
-youtubeBtn.onclick=(e)=>{
-
-    e.preventDefault();
-
-    openLink(CONFIG.youtube);
-
-};
-
-telegramBtn.onclick=(e)=>{
-
-    e.preventDefault();
-
-    openLink(CONFIG.telegram);
-
-};
-
-// ==========================
-// DONATE
-// ==========================
-
-openDonate.onclick=()=>{
+function openDonateWindow(){
 
     donateOverlay.style.display="flex";
 
-};
+    document.body.style.overflow="hidden";
 
-closeDonate.onclick=()=>{
+}
+
+function closeDonateWindow(){
 
     donateOverlay.style.display="none";
 
-};
+    document.body.style.overflow="";
 
-goDonate.onclick=(e)=>{
+}
 
-    e.preventDefault();
+supportButton.addEventListener(
 
-    openLink(CONFIG.donate);
+    "click",
 
-};
+    openDonateWindow
 
-// ==========================
-// SEND DONATION
-// ==========================
+);
+
+openDonate.addEventListener(
+
+    "click",
+
+    openDonateWindow
+
+);
+
+closeDonate.addEventListener(
+
+    "click",
+
+    closeDonateWindow
+
+);
+
+donateOverlay.addEventListener(
+
+    "click",
+
+    (event)=>{
+
+        if(event.target===donateOverlay){
+
+            closeDonateWindow();
+
+        }
+
+    }
+
+);
+
+/* ==========================================
+   ACCORDION
+========================================== */
+
+function toggleAccordion(){
+
+    accordionContent.classList.toggle("open");
+
+    accordionArrow.classList.toggle("rotate");
+
+}
+
+accordionButton.addEventListener(
+
+    "click",
+
+    toggleAccordion
+
+);
+
+/* ==========================================
+   PHOTO VIEWER
+========================================== */
+
+function openViewer(src){
+
+    viewerImage.src=src;
+
+    photoViewer.style.display="flex";
+
+    document.body.style.overflow="hidden";
+
+}
+
+function closePhotoViewer(){
+
+    photoViewer.style.display="none";
+
+    viewerImage.src="";
+
+    document.body.style.overflow="";
+
+}
+
+closeViewer.addEventListener(
+
+    "click",
+
+    closePhotoViewer
+
+);
+
+photoViewer.addEventListener(
+
+    "click",
+
+    (event)=>{
+
+        if(event.target===photoViewer){
+
+            closePhotoViewer();
+
+        }
+
+    }
+
+);
+.rotate{
+
+transform:rotate(180deg);
+
+}
+/* ==========================================
+   PHOTOS
+========================================== */
+
+async function loadPhotos(){
+
+    try{
+
+        const response=await fetch(
+
+            "data/photos.json"
+
+        );
+
+        const photos=await response.json();
+
+        photoSlider.innerHTML="";
+
+        photos.forEach(photo=>{
+
+            const card=document.createElement("div");
+
+            card.className="photoCard";
+
+            card.innerHTML=`
+
+                <img
+                src="${photo.image}"
+                alt="Martin">
+
+            `;
+
+            card.addEventListener(
+
+                "click",
+
+                ()=>openViewer(photo.image)
+
+            );
+
+            photoSlider.appendChild(card);
+
+        });
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+/* ==========================================
+   VIDEOS
+========================================== */
+
+async function loadVideos(){
+
+    try{
+
+        const response=await fetch(
+
+            "data/videos.json"
+
+        );
+
+        const videos=await response.json();
+
+        videoSlider.innerHTML="";
+
+        videos.forEach(video=>{
+
+            const card=document.createElement("div");
+
+            card.className="videoCard";
+
+            card.innerHTML=`
+
+<div class="videoPreview">
+
+<img
+src="${video.image}"
+alt="">
+
+<div class="videoDuration">
+
+${video.duration}
+
+</div>
+
+</div>
+
+<div class="videoInfo">
+
+<h3>
+
+${video.title}
+
+</h3>
+
+<p>
+
+${video.views}
+
+</p>
+
+</div>
+
+`;
+
+            videoSlider.appendChild(card);
+
+        });
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+/* ==========================================
+   SUPPORTERS
+========================================== */
+
+async function loadSupporters(){
+
+    try{
+
+        const response = await fetch("/api/donations");
+
+        const supporters = await response.json();
+
+        friendsList.innerHTML = "";
+
+        if(!supporters.length){
+
+            friendsList.innerHTML = `
+
+<div class="friendCard">
+
+<div class="friendName">
+
+Поки що нікого ❤️
+
+</div>
+
+<div class="friendAmount">
+
+—
+
+</div>
+
+</div>
+
+`;
+
+            return;
+
+        }
+
+        supporters.forEach(item=>{
+
+            if(!item.visible) return;
+
+            const card=document.createElement("div");
+
+            card.className="friendCard";
+
+            card.innerHTML=`
+
+<div class="friendName">
+
+${item.nickname}
+
+</div>
+
+<div class="friendAmount">
+
+${item.amount} грн
+
+</div>
+
+`;
+
+            friendsList.appendChild(card);
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+/* ==========================================
+   SEND DONATION
+========================================== */
 
 async function sendDonation(){
 
-    if(
+    const nickname=document
+        .getElementById("nickname")
+        .value
+        .trim();
 
-        nickname.value.trim()===""
+    const amount=document
+        .getElementById("amount")
+        .value
+        .trim();
 
-    ){
+    const visible=document
+        .getElementById("showName")
+        .checked;
 
-        alert("Введіть свій нік ❤️");
+    if(!nickname){
+
+        alert("Введіть нік ❤️");
 
         return;
 
     }
 
-    if(
-
-        amount.value.trim()===""
-
-    ){
+    if(!amount){
 
         alert("Введіть суму ❤️");
 
@@ -182,9 +466,7 @@ async function sendDonation(){
 
     try{
 
-        const response=
-
-        await fetch(
+        const response=await fetch(
 
             "/api/donations",
 
@@ -200,11 +482,11 @@ async function sendDonation(){
 
                 body:JSON.stringify({
 
-                    nickname:nickname.value.trim(),
+                    nickname,
 
-                    amount:amount.value.trim(),
+                    amount,
 
-                    visible:showName.checked
+                    visible
 
                 })
 
@@ -212,155 +494,177 @@ async function sendDonation(){
 
         );
 
-        const result=
-
-        await response.json();
+        const result=await response.json();
 
         if(result.success){
 
-            nickname.value="";
+            alert(
 
-            amount.value="";
+                "❤️ Дякуємо за підтримку!"
 
-            donateOverlay.style.display="none";
+            );
+
+            closeDonateWindow();
 
             loadSupporters();
 
-            alert("❤️ Дякуємо за підтримку Мартіна!");
-
         }
 
-    }catch(error){
+        else{
 
-        console.log(error);
+            alert(
 
-        alert("Помилка відправки.");
+                "Помилка відправки."
 
-    }
-
-}
-
-sendDonate.onclick=sendDonation;
-// ==========================
-// LOAD SUPPORTERS
-// ==========================
-
-async function loadSupporters(){
-
-    try{
-
-        const response=await fetch("/api/donations");
-
-        const data=await response.json();
-
-        friendsList.innerHTML="";
-
-        if(data.length===0){
-
-            friendsList.innerHTML=`
-
-<div class="empty">
-
-Поки що тут тихо ❤️
-
-</div>
-
-`;
-
-            return;
+            );
 
         }
-
-        data.forEach(item=>{
-
-            if(!item.visible) return;
-
-            const card=document.createElement("div");
-
-            card.className="supportItem";
-
-            card.innerHTML=`
-
-<strong>
-
-🐾 ${item.nickname}
-
-</strong>
-
-<span>
-
-❤️ ${item.amount} грн
-
-</span>
-
-`;
-
-            friendsList.appendChild(card);
-
-        });
 
     }
 
     catch(error){
 
-        console.log(error);
+        console.error(error);
 
     }
 
 }
 
-// ==========================
-// START
-// ==========================
+sendDonate.addEventListener(
 
-loadSupporters();
+    "click",
 
-// ==========================
-// SMALL EFFECTS
-// ==========================
+    sendDonation
 
-document.querySelectorAll(".card").forEach(card=>{
+);
+/* ==========================================
+   LOADER
+========================================== */
 
-    card.addEventListener("touchstart",()=>{
+window.addEventListener("load",()=>{
 
-        card.style.transform="scale(.97)";
+    setTimeout(()=>{
 
-    });
+        loader.classList.add("hide");
 
-    card.addEventListener("touchend",()=>{
-
-        setTimeout(()=>{
-
-            card.style.transform="";
-
-        },120);
-
-    });
+    },1200);
 
 });
 
-// ==========================
-// PHOTO EFFECT
-// ==========================
+/* ==========================================
+   SOCIAL LINKS
+========================================== */
 
-const heroPhoto=document.querySelector(".heroPhoto img");
+const socials={
 
-if(heroPhoto){
+    tiktok:CONFIG.tiktok,
 
-    let zoom=true;
+    instagram:CONFIG.instagram,
 
-    setInterval(()=>{
+    youtube:CONFIG.youtube,
 
-        heroPhoto.style.transform=
+    telegram:CONFIG.telegram
 
-        zoom
+};
 
-        ? "scale(1.03)"
+function openSocial(link){
 
-        : "scale(1)";
+    if(!link) return;
 
-        zoom=!zoom;
+    window.open(
 
-    },3500);
+        link,
+
+        "_blank"
+
+    );
 
 }
+
+document
+.getElementById("tiktokBtn")
+.addEventListener(
+
+    "click",
+
+    ()=>openSocial(
+
+        socials.tiktok
+
+    )
+
+);
+
+document
+.getElementById("instagramBtn")
+.addEventListener(
+
+    "click",
+
+    ()=>openSocial(
+
+        socials.instagram
+
+    )
+
+);
+
+document
+.getElementById("youtubeBtn")
+.addEventListener(
+
+    "click",
+
+    ()=>openSocial(
+
+        socials.youtube
+
+    )
+
+);
+
+document
+.getElementById("telegramBtn")
+.addEventListener(
+
+    "click",
+
+    ()=>openSocial(
+
+        socials.telegram
+
+    )
+
+);
+
+goDonate.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(CONFIG.donate){
+
+            window.open(
+
+                CONFIG.donate,
+
+                "_blank"
+
+            );
+
+        }
+
+    }
+
+);
+
+/* ==========================================
+   INIT
+========================================== */
+
+loadPhotos();
+
+loadVideos();
+
+loadSupporters();
