@@ -189,60 +189,9 @@ app.post("/api/donations",(req,res)=>{
 
 });
 
-const{
-
-nickname,
-
-amount,
-
-visible
-
-}=req.body;
-
-if(!nickname||!amount){
-
-return res.json({
-
-success:false
-
-});
-
-}
-
-donations.push({
-
-id:nextId++,
-
-nickname,
-
-amount,
-
-visible,
-
-approved:false
-
-});
-
-res.json({
-
-success:true
-
-});
-
-});
 app.get("/api/admin/donations",(req,res)=>{
 
     donations = readData(DONATIONS_FILE);
-
-    const waiting = donations.filter(
-
-        item => !item.approved
-
-    );
-
-    res.json(waiting);
-
-});
 
 const waiting=
 
