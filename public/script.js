@@ -577,3 +577,14 @@ function createPawTrail(){
     }
 
 }
+function startPawTrails(){
+
+    createPawTrail();
+
+    const delay = 3000 + Math.random() * 1000;
+
+    setTimeout(startPawTrails, delay);
+
+}
+
+setTimeout(startPawTrails, 2500);
