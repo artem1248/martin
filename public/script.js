@@ -490,21 +490,15 @@ document.getElementById("telegramBtn")
 
 });
 
-goDonate?.addEventListener("click",()=>{
+if (goDonate && CONFIG.donate) {
 
-    if(CONFIG.donate){
+    goDonate.href = CONFIG.donate;
 
-        window.open(
+    goDonate.target = "_blank";
 
-            CONFIG.donate,
+    goDonate.rel = "noopener noreferrer";
 
-            "_blank"
-
-        );
-
-    }
-
-});
+}
 
 /* ==========================================
    INIT
