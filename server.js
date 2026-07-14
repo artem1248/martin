@@ -131,30 +131,75 @@ app.get("/api/donations",(req,res)=>{
 
 });
 
-
-
 app.post("/api/donations",(req,res)=>{
 
     donations = readData(DONATIONS_FILE);
 
+    const {
+
+        nickname,
+
+        amount,
+
+        visible
+
+    } = req.body;
+
+    if(!nickname || !amount){
+
+        return res.json({
+
+            success:false
+
+        });
+
+    }
+
+    donations.push({
+
+        id:nextId++,
+
+        nickname,
+
+        amount,
+
+        visible,
+
+        approved:false,
+
+        createdAt:Date.now()
+
+    });
+
+    writeData(
+
+        DONATIONS_FILE,
+
+        donations
+
+    );
+
+    res.json({
+
+        success:true
+
+    });
+
+});
 
 app.get("/api/admin/donations",(req,res)=>{
 
     donations = readData(DONATIONS_FILE);
 
-const waiting=
+    const waiting = donations.filter(
 
-donations.filter(
+        item => !item.approved
 
-d=>!d.approved
+    );
 
-);
-
-res.json(waiting);
+    res.json(waiting);
 
 });
-
-
 
 app.post("/api/admin/approve",(req,res)=>{
 
