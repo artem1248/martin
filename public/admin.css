@@ -135,3 +135,98 @@ color:#D64545;
 min-height:20px;
 
 }
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.dashboard{
+
+width:100%;
+
+max-width:520px;
+
+margin:auto;
+
+padding:30px 20px;
+
+}
+
+.topCard{
+
+background:white;
+
+border-radius:30px;
+
+padding:30px;
+
+margin-bottom:24px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.topCard h1{
+
+font-size:34px;
+
+font-weight:800;
+
+margin-bottom:10px;
+
+}
+
+.topCard p{
+
+font-size:16px;
+
+color:#786C61;
+
+}
+
+.menuGrid{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.adminCard{
+
+background:white;
+
+border-radius:28px;
+
+padding:28px;
+
+cursor:pointer;
+
+transition:.25s;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.adminCard:hover{
+
+transform:translateY(-4px);
+
+}
+
+.adminCard h2{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+.adminCard p{
+
+font-size:15px;
+
+color:#786C61;
+
+}
