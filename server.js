@@ -13,64 +13,35 @@ app.use(express.static(path.join(__dirname, "public")));
    DATA
 ========================================== */
 
-const DATA_FOLDER = path.join(__dirname, "data");
+const DATA_DIR = path.join(__dirname, "data");
 
-const DONATIONS_FILE = path.join(DATA_FOLDER, "donations.json");
-const PHOTOS_FILE = path.join(DATA_FOLDER, "photos.json");
-const VIDEOS_FILE = path.join(DATA_FOLDER, "videos.json");
+const DONATIONS_FILE = path.join(DATA_DIR, "donations.json");
+const PHOTOS_FILE = path.join(DATA_DIR, "photos.json");
+const VIDEOS_FILE = path.join(DATA_DIR, "videos.json");
 
 /* ==========================================
    HELPERS
 ========================================== */
 
-function ensureFile(file){
-
-    if(!fs.existsSync(file)){
-
-        fs.writeFileSync(file,"[]");
-
+function ensureFile(file) {
+    if (!fs.existsSync(file)) {
+        fs.writeFileSync(file, "[]");
     }
-
 }
 
 ensureFile(DONATIONS_FILE);
 ensureFile(PHOTOS_FILE);
 ensureFile(VIDEOS_FILE);
 
-function readData(file){
-
-    return JSON.parse(
-
-        fs.readFileSync(
-
-            file,
-
-            "utf8"
-
-        )
-
-    );
-
+function readData(file) {
+    return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-function writeData(file,data){
-
+function writeData(file, data) {
     fs.writeFileSync(
-
         file,
-
-        JSON.stringify(
-
-            data,
-
-            null,
-
-            2
-
-        )
-
+        JSON.stringify(data, null, 2)
     );
-
 }
 
 /* ==========================================
@@ -78,186 +49,148 @@ function writeData(file,data){
 ========================================== */
 
 let donations = readData(DONATIONS_FILE);
-
 let photos = readData(PHOTOS_FILE);
-
 let videos = readData(VIDEOS_FILE);
 
-let nextId =
-donations.length
-? Math.max(...donations.map(d=>d.id))+1
-:1;
+let nextDonationId =
+    donations.length
+        ? Math.max(...donations.map(d => d.id)) + 1
+        : 1;
 
 let nextPhotoId =
-photos.length
-? Math.max(...photos.map(p=>p.id))+1
-:1;
+    photos.length
+        ? Math.max(...photos.map(p => p.id)) + 1
+        : 1;
 
 let nextVideoId =
-videos.length
-? Math.max(...videos.map(v=>v.id))+1
-:1;
-
-/* ==========================================
-   PHOTOS
-========================================== */
-
-let photos=[];
-
-let nextPhotoId=1;
-
-/* ==========================================
-   VIDEOS
-========================================== */
-
-let videos=[];
-
-let nextVideoId=1;
+    videos.length
+        ? Math.max(...videos.map(v => v.id)) + 1
+        : 1;
 /* ==========================================
    DONATIONS
 ========================================== */
 
-app.get("/api/donations",(req,res)=>{
+app.get("/api/donations", (req, res) => {
 
     donations = readData(DONATIONS_FILE);
 
     const approved = donations.filter(
-
-        item => item.approved === true
-
+        donation => donation.approved === true
     );
 
     res.json(approved);
 
 });
 
-app.post("/api/donations",(req,res)=>{
+app.post("/api/donations", (req, res) => {
 
     donations = readData(DONATIONS_FILE);
 
     const {
-
         nickname,
-
         amount,
-
         visible
-
     } = req.body;
 
-    if(!nickname || !amount){
+    if (!nickname || !amount) {
 
-        return res.json({
-
-            success:false
-
+        return res.status(400).json({
+            success: false,
+            message: "Missing nickname or amount"
         });
 
     }
 
-    donations.push({
+    const donation = {
 
-        id:nextId++,
+        id: nextDonationId++,
 
         nickname,
 
         amount,
 
-        visible,
+        visible: visible ?? true,
 
-        approved:false,
+        approved: false,
 
-        createdAt:Date.now()
+        createdAt: Date.now()
 
-    });
+    };
+
+    donations.push(donation);
 
     writeData(
-
         DONATIONS_FILE,
-
         donations
-
     );
 
     res.json({
-
-        success:true
-
+        success: true,
+        donation
     });
 
 });
 
-app.get("/api/admin/donations",(req,res)=>{
+app.get("/api/admin/donations", (req, res) => {
 
     donations = readData(DONATIONS_FILE);
 
     const waiting = donations.filter(
-
-        item => !item.approved
-
+        donation => !donation.approved
     );
 
     res.json(waiting);
 
 });
 
-app.post("/api/admin/approve",(req,res)=>{
+app.post("/api/admin/approve", (req, res) => {
 
     donations = readData(DONATIONS_FILE);
 
-    const { id } = req.body;
+    const id = Number(req.body.id);
 
-    const item = donations.find(
-
-        donation => donation.id === id
-
+    const donation = donations.find(
+        item => item.id === id
     );
 
-    if(item){
+    if (!donation) {
 
-        item.approved = true;
-
-        writeData(
-
-            DONATIONS_FILE,
-
-            donations
-
-        );
+        return res.status(404).json({
+            success: false
+        });
 
     }
 
+    donation.approved = true;
+
+    writeData(
+        DONATIONS_FILE,
+        donations
+    );
+
     res.json({
-
-        success:true
-
+        success: true
     });
 
 });
-app.post("/api/admin/delete",(req,res)=>{
+
+app.delete("/api/admin/donations/:id", (req, res) => {
 
     donations = readData(DONATIONS_FILE);
 
-    const { id } = req.body;
+    const id = Number(req.params.id);
 
     donations = donations.filter(
-
         donation => donation.id !== id
-
     );
 
     writeData(
-
         DONATIONS_FILE,
-
         donations
-
     );
 
     res.json({
-
-        success:true
-
+        success: true
     });
 
 });
@@ -265,7 +198,7 @@ app.post("/api/admin/delete",(req,res)=>{
    PHOTOS
 ========================================== */
 
-app.get("/api/photos",(req,res)=>{
+app.get("/api/photos", (req, res) => {
 
     photos = readData(PHOTOS_FILE);
 
@@ -273,78 +206,67 @@ app.get("/api/photos",(req,res)=>{
 
 });
 
-app.post("/api/photos",(req,res)=>{
+app.post("/api/photos", (req, res) => {
 
     photos = readData(PHOTOS_FILE);
 
     const {
-
         image,
-
         title
-
     } = req.body;
 
-    if(!image){
+    if (!image) {
 
-        return res.json({
-
-            success:false
-
+        return res.status(400).json({
+            success: false,
+            message: "Image is required"
         });
 
     }
 
-    photos.push({
+    const photo = {
 
-        id:nextPhotoId++,
+        id: nextPhotoId++,
 
         image,
 
-        title:title || ""
+        title: title || "",
 
-    });
+        createdAt: Date.now()
+
+    };
+
+    photos.push(photo);
 
     writeData(
-
         PHOTOS_FILE,
-
         photos
-
     );
 
     res.json({
-
-        success:true
-
+        success: true,
+        photo
     });
 
 });
 
-app.delete("/api/photos/:id",(req,res)=>{
+app.delete("/api/photos/:id", (req, res) => {
 
     photos = readData(PHOTOS_FILE);
 
     const id = Number(req.params.id);
 
     photos = photos.filter(
-
         photo => photo.id !== id
-
     );
 
     writeData(
-
         PHOTOS_FILE,
-
         photos
-
     );
 
     res.json({
-
-        success:true
-
+        success: true
     });
 
 });
@@ -352,7 +274,7 @@ app.delete("/api/photos/:id",(req,res)=>{
    VIDEOS
 ========================================== */
 
-app.get("/api/videos",(req,res)=>{
+app.get("/api/videos", (req, res) => {
 
     videos = readData(VIDEOS_FILE);
 
@@ -360,121 +282,106 @@ app.get("/api/videos",(req,res)=>{
 
 });
 
-app.post("/api/videos",(req,res)=>{
+app.post("/api/videos", (req, res) => {
 
     videos = readData(VIDEOS_FILE);
 
     const {
-
         title,
-
         image,
-
         duration,
-
         views,
-
         url
-
     } = req.body;
 
-    if(!image){
+    if (!image) {
 
-        return res.json({
-
-            success:false
-
+        return res.status(400).json({
+            success: false,
+            message: "Image is required"
         });
 
     }
 
-    videos.push({
+    const video = {
 
-        id:nextVideoId++,
+        id: nextVideoId++,
 
-        title:title || "",
+        title: title || "",
 
         image,
 
-        duration:duration || "",
+        duration: duration || "",
 
-        views:views || "",
+        views: views || "",
 
-        url:url || ""
+        url: url || "",
 
-    });
+        createdAt: Date.now()
+
+    };
+
+    videos.push(video);
 
     writeData(
-
         VIDEOS_FILE,
-
         videos
-
     );
 
     res.json({
-
-        success:true
-
+        success: true,
+        video
     });
 
 });
 
-app.delete("/api/videos/:id",(req,res)=>{
+app.delete("/api/videos/:id", (req, res) => {
 
     videos = readData(VIDEOS_FILE);
 
     const id = Number(req.params.id);
 
     videos = videos.filter(
-
         video => video.id !== id
-
     );
 
     writeData(
-
         VIDEOS_FILE,
-
         videos
-
     );
 
     res.json({
-
-        success:true
-
+        success: true
     });
 
 });
-app.get("*",(req,res)=>{
 
-res.sendFile(
+/* ==========================================
+   INDEX
+========================================== */
 
-path.join(
+app.get("*", (req, res) => {
 
-__dirname,
-
-"public",
-
-"index.html"
-
-)
-
-);
+    res.sendFile(
+        path.join(
+            __dirname,
+            "public",
+            "index.html"
+        )
+    );
 
 });
 
-const PORT=
+/* ==========================================
+   START
+========================================== */
 
-process.env.PORT||3000;
+const PORT = process.env.PORT || 3000;
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
 
-console.log(
-
-"Martin server running"
-
-);
+    console.log(
+        `🚀 Martin server running on port ${PORT}`
+    );
 
 });
