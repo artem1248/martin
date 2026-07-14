@@ -228,8 +228,75 @@ photoViewer.addEventListener(
 /* ==========================================
    PHOTOS
 ========================================== */
+/* ==========================================
+   IMAGE PRELOAD
+========================================== */
+
+function preloadImage(src){
+
+    return new Promise((resolve)=>{
+
+        const img=new Image();
+
+        img.onload=resolve;
+
+        img.onerror=resolve;
+
+        img.src=src;
+
+    });
+
+}
 
 async function loadPhotos(){
+
+    try{
+
+        const response=await fetch(
+
+            "data/photos.json"
+
+        );
+
+        const photos=await response.json();
+
+        photoSlider.innerHTML="";
+
+        for(const photo of photos){
+
+            await preloadImage(photo.image);
+
+            const card=document.createElement("div");
+
+            card.className="photoCard";
+
+            card.innerHTML=`
+
+<img
+src="${photo.image}"
+alt="Martin">
+
+`;
+
+            card.onclick=()=>{
+
+                openViewer(photo.image);
+
+            };
+
+            photoSlider.appendChild(card);
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
 
     try{
 
@@ -264,8 +331,20 @@ async function loadPhotos(){
                 ()=>openViewer(photo.image)
 
             );
+           card.style.opacity = "0";
+
+card.style.transform = "translateY(30px)";
 
             photoSlider.appendChild(card);
+           requestAnimationFrame(()=>{
+
+    card.style.transition = ".45s ease";
+
+    card.style.opacity = "1";
+
+    card.style.transform = "translateY(0)";
+
+});
 
         });
 
@@ -282,6 +361,106 @@ async function loadPhotos(){
 ========================================== */
 
 async function loadVideos(){
+
+    try{
+
+        const response = await fetch(
+
+            "data/videos.json"
+
+        );
+
+        const videos = await response.json();
+
+        videoSlider.innerHTML = "";
+
+        for(const video of videos){
+
+            await preloadImage(video.image);
+
+            const card = document.createElement("div");
+
+            card.className = "videoCard";
+
+            card.style.opacity = "0";
+
+            card.style.transform = "translateY(30px)";
+
+            card.innerHTML = `
+
+<div class="videoThumb">
+
+    <img
+    src="${video.image}"
+    alt="">
+
+    <div class="videoDuration">
+
+        ${video.duration}
+
+    </div>
+
+    <div class="videoPlay">
+
+        ▶
+
+    </div>
+
+</div>
+
+<h3>
+
+${video.title}
+
+</h3>
+
+<p>
+
+${video.views}
+
+</p>
+
+`;
+
+            if(video.url){
+
+                card.onclick = ()=>{
+
+                    window.open(
+
+                        video.url,
+
+                        "_blank"
+
+                    );
+
+                };
+
+            }
+
+            videoSlider.appendChild(card);
+
+            requestAnimationFrame(()=>{
+
+                card.style.transition=".45s ease";
+
+                card.style.opacity="1";
+
+                card.style.transform="translateY(0)";
+
+            });
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
 
     try{
 
