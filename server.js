@@ -13,6 +13,21 @@ app.use(express.static(path.join(__dirname,"public")));
 let donations=[];
 
 let nextId=1;
+/* ==========================================
+   PHOTOS
+========================================== */
+
+let photos=[];
+
+let nextPhotoId=1;
+
+/* ==========================================
+   VIDEOS
+========================================== */
+
+let videos=[];
+
+let nextVideoId=1;
 app.get("/api/donations",(req,res)=>{
 
 const approved=donations.filter(
