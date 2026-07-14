@@ -224,11 +224,7 @@ photoViewer.addEventListener(
     }
 
 );
-.rotate{
 
-transform:rotate(180deg);
-
-}
 /* ==========================================
    PHOTOS
 ========================================== */
