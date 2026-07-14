@@ -541,13 +541,21 @@ sendDonate.addEventListener(
    LOADER
 ========================================== */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-    setTimeout(()=>{
+    if (!loader) return;
+
+    setTimeout(() => {
 
         loader.classList.add("hide");
 
-    },1200);
+        setTimeout(() => {
+
+            loader.remove();
+
+        }, 500);
+
+    }, 1200);
 
 });
 
