@@ -230,3 +230,46 @@ font-size:15px;
 color:#786C61;
 
 }
+/* ==========================================
+   ADMIN CONTENT
+========================================== */
+
+.adminContent{
+
+margin-top:24px;
+
+}
+
+.emptyState{
+
+background:#FFFFFF;
+
+border-radius:28px;
+
+padding:40px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+text-align:center;
+
+}
+
+.emptyState h2{
+
+font-size:28px;
+
+margin-bottom:14px;
+
+font-weight:800;
+
+}
+
+.emptyState p{
+
+font-size:16px;
+
+color:#786C61;
+
+line-height:1.6;
+
+}
