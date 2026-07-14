@@ -1,13 +1,13 @@
 const CONFIG = {
 
-    tiktok: "",
+    tiktok: "https://www.tiktok.com/",
 
-    instagram: "",
+    instagram: "https://www.instagram.com/?hl=ru",
 
-    youtube: "",
+    youtube: "https://www.youtube.com/?hl=uk&gl=UA&app=desktop",
 
-    telegram: "",
+    telegram: "https://web.telegram.org/k/",
 
-    donate: ""
+    donate: "https://send.monobank.ua/jar/9EPLHcYnwW"
 
 };
