@@ -1782,3 +1782,60 @@ background:#D9C3AA;
 color:#241C16;
 
 }
+/* ==========================================
+   PAW TRAIL
+========================================== */
+
+.pawTrail{
+
+position:fixed;
+
+width:24px;
+
+height:24px;
+
+pointer-events:none;
+
+opacity:0;
+
+z-index:30;
+
+animation:pawTrail 3s ease forwards;
+
+}
+
+@keyframes pawTrail{
+
+0%{
+
+opacity:0;
+
+transform:
+scale(.7)
+rotate(-12deg);
+
+}
+
+20%{
+
+opacity:.18;
+
+}
+
+80%{
+
+opacity:.18;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+scale(1)
+rotate(12deg);
+
+}
+
+}
