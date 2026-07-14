@@ -509,3 +509,71 @@ loadPhotos();
 loadVideos();
 
 loadSupporters();
+/* ==========================================
+   PAW TRAILS
+========================================== */
+
+function createPawTrail(){
+
+    if(menuOverlay?.classList.contains("open")) return;
+    if(donateOverlay?.style.display==="flex") return;
+
+    const startX = Math.random() * (window.innerWidth - 220) + 40;
+    const startY = Math.random() * (window.innerHeight - 220) + 40;
+
+    const angle = Math.random() * Math.PI * 2;
+
+    const step = 34;
+
+    const offset = 14;
+
+    const count = 8;
+
+    for(let i=0;i<count;i++){
+
+        setTimeout(()=>{
+
+            const paw=document.createElement("img");
+
+            paw.src="icons/paw.svg";
+
+            paw.className="pawTrail";
+
+            const x =
+                startX +
+                Math.cos(angle)*step*i;
+
+            const y =
+                startY +
+                Math.sin(angle)*step*i;
+
+            const side =
+                i % 2 === 0 ? -offset : offset;
+
+            const px =
+                x +
+                Math.cos(angle + Math.PI/2)*side;
+
+            const py =
+                y +
+                Math.sin(angle + Math.PI/2)*side;
+
+            paw.style.left = px + "px";
+            paw.style.top = py + "px";
+
+            paw.style.transform =
+                `rotate(${angle*57.3+90}deg)`;
+
+            document.body.appendChild(paw);
+
+            setTimeout(()=>{
+
+                paw.remove();
+
+            },3200);
+
+        },i*170);
+
+    }
+
+}
