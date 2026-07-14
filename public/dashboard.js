@@ -27,9 +27,12 @@ document.getElementById("videosCard");
 const donationsCard =
 document.getElementById("donationsCard");
 
+const adminContent =
+document.getElementById("adminContent");
+
 photosCard?.addEventListener("click",()=>{
 
-    alert("Фото — скоро 🚀");
+    openPhotos();
 
 });
 
@@ -44,3 +47,46 @@ donationsCard?.addEventListener("click",()=>{
     alert("Донати — скоро 🚀");
 
 });
+/* ==========================================
+   PHOTOS
+========================================== */
+
+function openPhotos(){
+
+    adminContent.innerHTML = `
+
+        <div class="sectionBox">
+
+            <div class="sectionTop">
+
+                <h2>
+
+                    📷 Фото
+
+                </h2>
+
+                <button
+                id="addPhotoButton"
+                class="addButton">
+
+                    + Додати фото
+
+                </button>
+
+            </div>
+
+            <div id="photoList">
+
+                <p>
+
+                    Фото ще не завантажені.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
