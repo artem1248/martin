@@ -588,3 +588,33 @@ function startPawTrails(){
 }
 
 setTimeout(startPawTrails, 2500);
+/* ==========================================
+   VOICE MESSAGE
+========================================== */
+
+const voiceOverlay =
+document.getElementById("voiceOverlay");
+
+const playVoice =
+document.getElementById("playVoice");
+
+const martinVoice =
+document.getElementById("martinVoice");
+
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        voiceOverlay.style.display="flex";
+
+    },2000);
+
+});
+
+playVoice.addEventListener("click",()=>{
+
+    martinVoice.play();
+
+    voiceOverlay.style.display="none";
+
+});
