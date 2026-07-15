@@ -589,14 +589,17 @@ function startPawTrails(){
 
 setTimeout(startPawTrails, 2500);
 /* ==========================================
-   VOICE MESSAGE
+   VOICE POPUP
 ========================================== */
 
-const voiceOverlay =
-document.getElementById("voiceOverlay");
+const voicePopup =
+document.getElementById("voicePopup");
 
 const playVoice =
 document.getElementById("playVoice");
+
+const closeVoice =
+document.getElementById("closeVoice");
 
 const martinVoice =
 document.getElementById("martinVoice");
@@ -605,9 +608,9 @@ window.addEventListener("load",()=>{
 
     setTimeout(()=>{
 
-        voiceOverlay.style.display="flex";
+        voicePopup.style.display="block";
 
-    },2000);
+    },3000);
 
 });
 
@@ -615,6 +618,16 @@ playVoice.addEventListener("click",()=>{
 
     martinVoice.play();
 
-    voiceOverlay.style.display="none";
+});
+
+closeVoice.addEventListener("click",()=>{
+
+    voicePopup.style.display="none";
+
+});
+
+martinVoice.addEventListener("ended",()=>{
+
+    voicePopup.style.display="none";
 
 });
