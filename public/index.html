@@ -481,39 +481,50 @@ class="friendsList">
   <!-- ========= VOICE MESSAGE ========= -->
 
 <div
-id="voiceOverlay"
-class="voiceOverlay">
+id="voicePopup"
+class="voicePopup">
 
-    <div class="voiceModal">
+    <button
+    id="closeVoice"
+    class="closeVoice">
 
-        <div class="voiceDog">
+        ✕
 
-            🐶
+    </button>
 
-        </div>
+    <video
+    class="voiceVideo"
+    autoplay
+    muted
+    loop
+    playsinline>
 
-        <h2>
+        <source
+        src="video/martin.mp4"
+        type="video/mp4">
 
-            Привіт!
+    </video>
 
-        </h2>
+    <h3>
 
-        <p>
+        Привіт ❤️
 
-            Я залишив для тебе
-            невелике повідомлення ❤️
+    </h3>
 
-        </p>
+    <p>
 
-        <button
-        id="playVoice"
-        class="voiceButton">
+        Я залишив для тебе
+        невелике повідомлення
 
-            ▶ Прослухати
+    </p>
 
-        </button>
+    <button
+    id="playVoice"
+    class="voiceButton">
 
-    </div>
+        ▶ Прослухати
+
+    </button>
 
 </div>
 
