@@ -595,8 +595,6 @@ setTimeout(startPawTrails, 2500);
 const voicePopup =
 document.getElementById("voicePopup");
 
-const voiceVideo =
-document.getElementById("voiceVideo");
 
 const playVoice =
 document.getElementById("playVoice");
@@ -608,9 +606,6 @@ const martinVoice =
 document.getElementById("martinVoice");
 
 window.addEventListener("load",()=>{
-   voiceVideo.removeAttribute("controls");
-
-voiceVideo.play().catch(()=>{});
 
     setTimeout(()=>{
 
