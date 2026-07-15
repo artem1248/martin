@@ -1908,122 +1908,146 @@ rotate(12deg);
 
 }
 /* ==========================================
-   VOICE MESSAGE
+   VOICE POPUP
 ========================================== */
 
-.voiceOverlay{
+.voicePopup{
 
 position:fixed;
 
-inset:0;
+left:50%;
 
-background:rgba(0,0,0,.55);
+bottom:20px;
 
-backdrop-filter:blur(8px);
+transform:translateX(-50%);
 
-display:none;
+width:360px;
 
-align-items:center;
+max-width:calc(100% - 30px);
 
-justify-content:center;
+background:#fff;
 
-padding:20px;
+border-radius:28px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.18);
+
+overflow:hidden;
 
 z-index:3000;
 
+display:none;
+
+animation:voiceShow .45s ease;
+
 }
 
-.voiceModal{
+.voiceVideo{
+
+display:block;
 
 width:100%;
 
-max-width:360px;
+height:180px;
 
-background:white;
+object-fit:cover;
 
-border-radius:32px;
-
-padding:34px 28px;
-
-text-align:center;
-
-box-shadow:
-
-0 30px 80px rgba(0,0,0,.18);
-
-animation:voiceOpen .35s ease;
+background:#000;
 
 }
 
-.voiceDog{
+.closeVoice{
 
-font-size:64px;
+position:absolute;
 
-margin-bottom:16px;
+top:12px;
 
-animation:dogBounce 2s infinite;
+right:12px;
+
+width:36px;
+
+height:36px;
+
+border-radius:50%;
+
+background:rgba(0,0,0,.45);
+
+color:#fff;
+
+font-size:18px;
+
+z-index:2;
 
 }
 
-.voiceModal h2{
+.voicePopup h3{
 
-font-size:34px;
+font-size:28px;
 
 font-weight:800;
 
-margin-bottom:14px;
+text-align:center;
+
+margin-top:20px;
+
+margin-bottom:10px;
 
 }
 
-.voiceModal p{
+.voicePopup p{
 
-font-size:17px;
+font-size:16px;
 
-line-height:1.7;
+line-height:1.6;
 
 color:var(--textLight);
 
-margin-bottom:28px;
+text-align:center;
+
+padding:0 22px;
+
+margin-bottom:22px;
 
 }
 
 .voiceButton{
 
-width:100%;
+width:calc(100% - 40px);
 
-height:58px;
+height:56px;
 
-border:none;
+margin:0 20px 20px;
 
 border-radius:18px;
 
 background:#1F1A17;
 
-color:white;
+color:#fff;
 
 font-size:17px;
 
 font-weight:700;
 
-cursor:pointer;
+}
 
-transition:.25s;
+@keyframes voiceShow{
+
+from{
+
+opacity:0;
+
+transform:translate(-50%,40px);
 
 }
 
-.voiceButton:hover{
+to{
 
-transform:translateY(-2px);
+opacity:1;
 
-}
-
-.voiceButton:active{
-
-transform:scale(.97);
+transform:translate(-50%,0);
 
 }
 
-@keyframes voiceOpen{
+}
 
 from{
 
