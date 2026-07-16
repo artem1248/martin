@@ -152,11 +152,20 @@ document.body.innerHTML=`
 
 <h2>Фотографії</h2>
 
-<button class="addButton">
+<button
+id="uploadPhotos"
+class="addButton">
 
 + Додати
 
 </button>
+
+<input
+id="photoInput"
+type="file"
+accept="image/*"
+multiple
+hidden>
 
 </div>
 
@@ -213,6 +222,22 @@ document.body.innerHTML=`
 </div>
 
 `;
+    document
+.getElementById("uploadPhotos")
+.addEventListener("click",()=>{
+
+document
+.getElementById("photoInput")
+.click();
+
+});
+    document
+.getElementById("photoInput")
+.addEventListener("change",(e)=>{
+
+console.log(e.target.files);
+
+});
 
 }
 
