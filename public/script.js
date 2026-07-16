@@ -621,7 +621,14 @@ playVoice.addEventListener("click",()=>{
 
     playVoice.disabled = true;
 
-    playVoice.innerHTML = '<span class="voicePaws">🐾 🐾</span> Мартін говорить...';
+   playVoice.innerHTML = `
+<span class="voicePaws">
+<span>🐾</span>
+<span>🐾</span>
+<span>🐾</span>
+</span>
+Мартін говорить...
+`;
 
 });
 
