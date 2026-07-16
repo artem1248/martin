@@ -649,3 +649,12 @@ martinVoice.addEventListener("ended",()=>{
     },1000);
 
 });
+document.querySelectorAll(".loveCard").forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+card.classList.toggle("flipped");
+
+});
+
+});
