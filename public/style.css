@@ -431,6 +431,44 @@ color:white;
 backdrop-filter:blur(18px);
 
 transition:.25s;
+   position:relative;
+
+overflow:hidden;
+
+isolation:isolate;
+
+}
+.socialButton::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:60%;
+
+height:100%;
+
+background:linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent
+
+);
+
+transform:skewX(-25deg);
+
+animation:buttonShine 5s linear infinite;
+
+pointer-events:none;
 
 }
 
@@ -440,11 +478,32 @@ width:22px;
 
 height:22px;
 
+display:block;
+
+animation:iconFloat 2.8s ease-in-out infinite;
+
+}
+.tiktok img{
+
+animation-delay:0s;
+
 }
 
-.socialButton:active{
+.instagram img{
 
-transform:scale(.97);
+animation-delay:.5s;
+
+}
+
+.youtube img{
+
+animation-delay:1s;
+
+}
+
+.telegram img{
+
+animation-delay:1.5s;
 
 }
 
@@ -2479,4 +2538,35 @@ color:#6F655D;
 @keyframes ballMove{
 0%,100%{transform:translateY(0);}
 50%{transform:translateY(-6px);}
+}
+@keyframes buttonShine{
+
+0%{
+
+left:-120%;
+
+}
+
+100%{
+
+left:150%;
+
+}
+
+}
+
+@keyframes iconFloat{
+
+0%,100%{
+
+transform:translateY(0) scale(1);
+
+}
+
+50%{
+
+transform:translateY(-3px) scale(1.06);
+
+}
+
 }
