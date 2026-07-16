@@ -2169,3 +2169,50 @@ opacity:1;
 }
 
 }
+.siteFooter{
+
+padding:70px 20px 45px;
+
+text-align:center;
+
+}
+
+.footerPaw{
+
+font-size:34px;
+
+margin-bottom:18px;
+
+}
+
+.siteFooter p{
+
+font-size:18px;
+
+line-height:1.7;
+
+font-weight:600;
+
+margin-bottom:24px;
+
+}
+
+.siteFooter small{
+
+display:block;
+
+font-size:14px;
+
+opacity:.7;
+
+margin-bottom:8px;
+
+}
+
+.siteFooter span{
+
+font-size:13px;
+
+opacity:.6;
+
+}
