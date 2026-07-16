@@ -181,6 +181,15 @@ const { data, error } = await window.db.storage
 
 console.log("UPLOAD:", data);
 console.log("ERROR:", error);
+        if (!error) {
+
+    const { data: urlData } = window.db.storage
+        .from("photos")
+        .getPublicUrl(fileName);
+
+    console.log(urlData.publicUrl);
+
+}
        console.log("Bucket:", window.db.storage.from("photos"));
        console.log(window.db);
         list.innerHTML="";
