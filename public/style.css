@@ -590,27 +590,81 @@ gap:16px;
 
 .loveCard{
 
-background:var(--card);
+position:relative;
 
-border-radius:26px;
+height:165px;
 
-padding:22px;
+cursor:pointer;
 
-box-shadow:var(--shadow);
+transform-style:preserve-3d;
+
+transition:transform .6s;
+
+}
+.loveCard.flipped{
+
+transform:rotateY(180deg);
+
+}
+
+.loveFront,
+.loveBack{
+
+position:absolute;
+
+inset:0;
 
 display:flex;
 
 flex-direction:column;
 
+justify-content:center;
+
 align-items:center;
 
-justify-content:center;
+background:#fff;
+
+border-radius:28px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+backface-visibility:hidden;
+
+padding:18px;
 
 text-align:center;
 
-transition:.25s;
+}
 
-min-height:160px;
+.loveFront img{
+
+width:52px;
+
+height:52px;
+
+}
+
+.loveBack{
+
+transform:rotateY(180deg);
+
+}
+
+.loveBack h3{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+.loveBack p{
+
+font-size:15px;
+
+line-height:1.5;
+
+color:#666;
 
 }
 
