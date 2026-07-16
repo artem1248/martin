@@ -167,7 +167,7 @@ function initPhotos(){
     input.addEventListener("change",(e)=>{
 
         const files=[...e.target.files];
-        console.log("Bucket:", supabase.storage.from("photos"));
+       console.log("Bucket:", window.db.storage.from("photos"));
         console.log(supabase);
 
         list.innerHTML="";
