@@ -184,10 +184,37 @@ function initPhotos(){
 
             row.className="photoRow";
 
-            row.innerHTML=`
-                <span>📷 ${file.name}</span>
-                <button class="deleteButton">🗑</button>
-            `;
+            const imageURL = URL.createObjectURL(file);
+
+row.innerHTML = `
+<div class="photoInfo">
+
+<img src="${imageURL}">
+
+<div>
+
+<div class="photoName">
+
+${file.name}
+
+</div>
+
+<div class="photoSize">
+
+${Math.round(file.size/1024)} KB
+
+</div>
+
+</div>
+
+</div>
+
+<button class="deleteButton">
+
+🗑
+
+</button>
+`;
 
             row.querySelector(".deleteButton").addEventListener("click",()=>{
 
