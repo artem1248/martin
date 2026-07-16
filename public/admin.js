@@ -181,13 +181,25 @@ const { data, error } = await window.db.storage
 
 console.log("UPLOAD:", data);
 console.log("ERROR:", error);
-        if (!error) {
+       if (!error) {
 
     const { data: urlData } = window.db.storage
         .from("photos")
         .getPublicUrl(fileName);
 
-    console.log(urlData.publicUrl);
+    const imageUrl = urlData.publicUrl;
+
+    console.log(imageUrl);
+
+    const { error: dbError } = await window.db
+        .from("photos")
+        .insert([
+            {
+                image_url: imageUrl
+            }
+        ]);
+
+    console.log("DB ERROR:", dbError);
 
 }
        console.log("Bucket:", window.db.storage.from("photos"));
