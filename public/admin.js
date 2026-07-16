@@ -1,15 +1,14 @@
-const emailInput = document.getElementById("email");
+const PASSWORD = "martin2026";
+
 const passwordInput = document.getElementById("password");
 const loginButton = document.getElementById("loginButton");
 const error = document.getElementById("error");
 
-checkLogin();
-
 loginButton.addEventListener("click", login);
 
-passwordInput.addEventListener("keydown", (e)=>{
+passwordInput.addEventListener("keydown", (e) => {
 
-    if(e.key==="Enter"){
+    if (e.key === "Enter") {
 
         login();
 
@@ -17,22 +16,13 @@ passwordInput.addEventListener("keydown", (e)=>{
 
 });
 
-async function login(){
+function login() {
 
-    error.textContent="";
+    error.textContent = "";
 
-    const { error: loginError } =
-        await supabase.auth.signInWithPassword({
+    if (passwordInput.value !== PASSWORD) {
 
-            email: emailInput.value.trim(),
-
-            password: passwordInput.value
-
-        });
-
-    if(loginError){
-
-        error.textContent="Невірний email або пароль";
+        error.textContent = "Невірний пароль";
 
         return;
 
@@ -42,209 +32,78 @@ async function login(){
 
 }
 
-async function checkLogin(){
+function showAdmin() {
 
-    const {
-
-        data:{session}
-
-    }=await supabase.auth.getSession();
-
-    if(session){
-
-        showAdmin();
-
-    }
-
-}
-
-function showAdmin(){
-
-    document.body.innerHTML=`
+    document.body.innerHTML = `
 
 <div class="dashboard">
 
-<div class="topCard">
+    <div class="topCard">
 
-<h1>🐶 Martin Admin</h1>
+        <h1>🐶 Martin Admin</h1>
 
-<p>
+        <p>Керування сайтом</p>
 
-Керування сайтом
+    </div>
 
-</p>
+    <div class="menuGrid">
 
-</div>
+        <div class="adminCard" id="photosCard">
 
-<div class="menuGrid">
+            <h2>📷 Фото</h2>
 
-<div class="adminCard" id="photosCard">
+            <p>Керування фотографіями</p>
 
-<h2>📷 Фото</h2>
+        </div>
 
-<p>
+        <div class="adminCard" id="videosCard">
 
-Завантаження та видалення фотографій
+            <h2>🎥 Відео</h2>
 
-</p>
+            <p>Керування відео</p>
 
-</div>
+        </div>
 
-<div class="adminCard" id="videosCard">
+        <div class="adminCard" id="logoutCard">
 
-<h2>🎥 Відео</h2>
+            <h2>🚪 Вийти</h2>
 
-<p>
+            <p>Повернутися до входу</p>
 
-Завантаження та видалення відео
+        </div>
 
-</p>
-
-</div>
-
-<div class="adminCard" id="logoutCard">
-
-<h2>🚪 Вийти</h2>
-
-<p>
-
-Завершити сеанс
-
-</p>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
 `;
 
-document
-.getElementById("logoutCard")
-.addEventListener("click",logout);
     document
-.getElementById("photosCard")
-.addEventListener("click",showPhotos);
+        .getElementById("photosCard")
+        .addEventListener("click", showPhotos);
 
-document
-.getElementById("videosCard")
-.addEventListener("click",showVideos);
+    document
+        .getElementById("videosCard")
+        .addEventListener("click", showVideos);
 
-}
-function showPhotos(){
+    document
+        .getElementById("logoutCard")
+        .addEventListener("click", () => {
 
-document.body.innerHTML=`
+            location.reload();
 
-<div class="dashboard">
-
-<div class="topCard">
-
-<h1>📷 Фото</h1>
-
-<p>Керування фотографіями</p>
-
-</div>
-
-<div class="sectionBox">
-
-<div class="sectionTop">
-
-<h2>Фотографії</h2>
-
-<button
-id="uploadPhotos"
-class="addButton">
-
-+ Додати
-
-</button>
-
-<input
-id="photoInput"
-type="file"
-accept="image/*"
-multiple
-hidden>
-
-</div>
-
-<div id="photoList">
-
-Поки що тут порожньо 🐶
-
-</div>
-
-</div>
-
-</div>
-
-`;
+        });
 
 }
 
-function showVideos(){
+function showPhotos() {
 
-document.body.innerHTML=`
-
-<div class="dashboard">
-
-<div class="topCard">
-
-<h1>🎥 Відео</h1>
-
-<p>Керування відео</p>
-
-</div>
-
-<div class="sectionBox">
-
-<div class="sectionTop">
-
-<h2>Відео</h2>
-
-<button class="addButton">
-
-+ Додати
-
-</button>
-
-</div>
-
-<div>
-
-Поки що тут порожньо 🐶
-
-</div>
-
-</div>
-
-</div>
-
-`;
-    document
-.getElementById("uploadPhotos")
-.addEventListener("click",()=>{
-
-document
-.getElementById("photoInput")
-.click();
-
-});
-    document
-.getElementById("photoInput")
-.addEventListener("change",(e)=>{
-
-console.log(e.target.files);
-
-});
+    alert("Фото (поки що в розробці)");
 
 }
 
-async function logout(){
+function showVideos() {
 
-    await supabase.auth.signOut();
-
-    location.reload();
+    alert("Відео (поки що в розробці)");
 
 }
