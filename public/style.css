@@ -2318,7 +2318,7 @@ gap:14px;
 
 .aboutCard{
 
-background:#fff;
+background:#FCFAF8;
 
 border-radius:24px;
 
@@ -2339,6 +2339,41 @@ flex-direction:column;
 justify-content:flex-start;
 
 }
+.aboutCard:nth-child(1){
+
+background:#FFF8ED;
+
+}
+
+.aboutCard:nth-child(2){
+
+background:#F6F9FF;
+
+}
+
+.aboutCard:nth-child(3){
+
+background:#F3FFF6;
+
+}
+
+.aboutCard:nth-child(4){
+
+background:#FFF9F2;
+
+}
+
+.aboutCard:nth-child(5){
+
+background:#FFF4F7;
+
+}
+
+.aboutCard:nth-child(6){
+
+background:#F8F6FF;
+
+}
 
 .aboutCard:active{
 
@@ -2347,6 +2382,25 @@ transform:scale(.97);
 }
 
 .aboutIcon{
+
+font-size:38px;
+
+margin-bottom:12px;
+
+transition:.25s;
+
+}
+.aboutCard:hover .aboutIcon{
+
+transform:scale(1.15);
+
+}
+
+.aboutCard:active .aboutIcon{
+
+transform:scale(.9);
+
+}
 
 font-size:34px;
 
