@@ -123,6 +123,96 @@ function showAdmin(){
 document
 .getElementById("logoutCard")
 .addEventListener("click",logout);
+    document
+.getElementById("photosCard")
+.addEventListener("click",showPhotos);
+
+document
+.getElementById("videosCard")
+.addEventListener("click",showVideos);
+
+}
+function showPhotos(){
+
+document.body.innerHTML=`
+
+<div class="dashboard">
+
+<div class="topCard">
+
+<h1>📷 Фото</h1>
+
+<p>Керування фотографіями</p>
+
+</div>
+
+<div class="sectionBox">
+
+<div class="sectionTop">
+
+<h2>Фотографії</h2>
+
+<button class="addButton">
+
++ Додати
+
+</button>
+
+</div>
+
+<div id="photoList">
+
+Поки що тут порожньо 🐶
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+
+function showVideos(){
+
+document.body.innerHTML=`
+
+<div class="dashboard">
+
+<div class="topCard">
+
+<h1>🎥 Відео</h1>
+
+<p>Керування відео</p>
+
+</div>
+
+<div class="sectionBox">
+
+<div class="sectionTop">
+
+<h2>Відео</h2>
+
+<button class="addButton">
+
++ Додати
+
+</button>
+
+</div>
+
+<div>
+
+Поки що тут порожньо 🐶
+
+</div>
+
+</div>
+
+</div>
+
+`;
 
 }
 
