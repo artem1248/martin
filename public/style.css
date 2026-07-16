@@ -2401,11 +2401,33 @@ transform:scale(1.15);
 transform:scale(.9);
 
 }
+.aboutCard:nth-child(1) .aboutIcon{
+animation:boneMove 1.6s ease-in-out infinite;
+}
 
-font-size:34px;
+.aboutCard:nth-child(2) .aboutIcon{
+animation:bedMove 2.8s ease-in-out infinite;
+animation-delay:.4s;
+}
 
-margin-bottom:10px;
+.aboutCard:nth-child(3) .aboutIcon{
+animation:cameraMove 2.3s ease-in-out infinite;
+animation-delay:.8s;
+}
 
+.aboutCard:nth-child(4) .aboutIcon{
+animation:smileMove 2.5s ease-in-out infinite;
+animation-delay:.3s;
+}
+
+.aboutCard:nth-child(5) .aboutIcon{
+animation:heartMove 1.4s ease-in-out infinite;
+animation-delay:.7s;
+}
+
+.aboutCard:nth-child(6) .aboutIcon{
+animation:ballMove 1.8s ease-in-out infinite;
+animation-delay:1s;
 }
 
 .aboutCard h3{
@@ -2428,4 +2450,33 @@ line-height:1.45;
 
 color:#6F655D;
 
+}
+@keyframes boneMove{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-5px);}
+}
+
+@keyframes bedMove{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-3px);}
+}
+
+@keyframes cameraMove{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.08);}
+}
+
+@keyframes smileMove{
+0%,100%{transform:rotate(-4deg);}
+50%{transform:rotate(4deg);}
+}
+
+@keyframes heartMove{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+@keyframes ballMove{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
 }
