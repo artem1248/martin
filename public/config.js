@@ -6,7 +6,7 @@ const CONFIG = {
 
     youtube: "https://www.youtube.com/?hl=uk&gl=UA&app=desktop",
 
-    telegram: "https://web.telegram.org/k/",
+    telegram: "",
 
     donate: "https://send.monobank.ua/jar/2fC3zwmaZe"
 
