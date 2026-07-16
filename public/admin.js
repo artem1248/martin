@@ -286,6 +286,7 @@ async function deletePhoto(photo){
     const { error: storageError } = await window.db.storage
         .from("photos")
         .remove([fileName]);
+    console.log("STORAGE ERROR:", storageError);
 
     if(storageError){
 
@@ -301,6 +302,7 @@ async function deletePhoto(photo){
         .from("photos")
         .delete()
         .eq("id", photo.id);
+    console.log("DB ERROR:", dbError);
 
     if(dbError){
 
