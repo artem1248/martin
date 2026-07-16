@@ -654,26 +654,32 @@ const telegramBtn = document.getElementById("telegramBtn");
 const telegramPopup = document.getElementById("telegramPopup");
 const closeTelegram = document.getElementById("closeTelegram");
 
-telegramBtn.addEventListener("click",(e)=>{
+telegramBtn?.addEventListener("click",(e)=>{
 
-e.preventDefault();
+    e.preventDefault();
 
-telegramPopup.classList.add("show");
+    telegramPopup.style.display = "flex";
 
-});
-
-closeTelegram.addEventListener("click",()=>{
-
-telegramPopup.classList.remove("show");
+    document.body.style.overflow = "hidden";
 
 });
 
-telegramPopup.addEventListener("click",(e)=>{
+closeTelegram?.addEventListener("click",()=>{
 
-if(e.target===telegramPopup){
+    telegramPopup.style.display = "none";
 
-telegramPopup.classList.remove("show");
+    document.body.style.overflow = "";
 
-}
+});
+
+telegramPopup?.addEventListener("click",(e)=>{
+
+    if(e.target===telegramPopup){
+
+        telegramPopup.style.display = "none";
+
+        document.body.style.overflow = "";
+
+    }
 
 });
