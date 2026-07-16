@@ -481,14 +481,6 @@ document.getElementById("youtubeBtn")
 
 });
 
-document.getElementById("telegramBtn")
-    ?.addEventListener("click",e=>{
-
-        e.preventDefault();
-
-        openSocial(CONFIG.telegram);
-
-});
 
 if (goDonate && CONFIG.donate) {
 
