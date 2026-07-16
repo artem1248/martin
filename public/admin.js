@@ -297,6 +297,11 @@ async function deletePhoto(photo){
         return;
 
     }
+    const { data: before } = await window.db
+    .from("photos")
+    .select("*");
+
+console.log("До удаления:", before);
 
     const { error: dbError } = await window.db
         .from("photos")
@@ -315,6 +320,13 @@ async function deletePhoto(photo){
     }
 
     loadPhotosFromSupabase();
+    const { data: after } = await window.db
+    .from("photos")
+    .select("*");
+
+console.log("После удаления:", after);
+
+console.log("Удаление завершено");
 
 }
 
