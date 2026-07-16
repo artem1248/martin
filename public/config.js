@@ -8,6 +8,6 @@ const CONFIG = {
 
     telegram: "https://web.telegram.org/k/",
 
-    donate: "https://send.monobank.ua/jar/9EPLHcYnwW"
+    donate: "https://send.monobank.ua/jar/2fC3zwmaZe"
 
 };
