@@ -167,6 +167,7 @@ function initPhotos(){
     input.addEventListener("change",(e)=>{
 
         const files=[...e.target.files];
+        console.log(supabase);
 
         list.innerHTML="";
 
