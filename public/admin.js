@@ -154,31 +154,55 @@ initPhotos();
 }
 function initPhotos(){
 
-document
+    const addButton = document.getElementById("addPhoto");
+    const input = document.getElementById("photoInput");
+    const list = document.getElementById("photoList");
 
-.getElementById("addPhoto")
+    addButton.addEventListener("click",()=>{
 
-.addEventListener("click",()=>{
+        input.click();
 
-document
+    });
 
-.getElementById("photoInput")
+    input.addEventListener("change",(e)=>{
 
-.click();
+        const files=[...e.target.files];
 
-});
+        list.innerHTML="";
 
-document
+        if(files.length===0){
 
-.getElementById("photoInput")
+            list.innerHTML="<p>Поки що фотографій немає 🐾</p>";
 
-.addEventListener("change",(e)=>{
+            return;
 
-const files=e.target.files;
+        }
 
-alert("Вибрано "+files.length+" фото");
+        files.forEach(file=>{
 
-});
+            const row=document.createElement("div");
+
+            row.className="photoRow";
+
+            row.innerHTML=`
+
+                <span>📷 ${file.name}</span>
+
+                <button class="deleteButton">🗑</button>
+
+            `;
+
+            row.querySelector(".deleteButton").addEventListener("click",()=>{
+
+                row.remove();
+
+            });
+
+            list.appendChild(row);
+
+        });
+
+    });
 
 }
 
