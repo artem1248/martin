@@ -2119,3 +2119,45 @@ transform:scale(1.12);
 }
 
 }
+
+.voicePaws{
+
+display:inline-block;
+
+animation:voicePaws .8s infinite;
+
+}
+
+@keyframes voicePaws{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+25%{
+
+transform:translateX(3px);
+
+}
+
+50%{
+
+transform:translateX(0);
+
+}
+
+75%{
+
+transform:translateX(-3px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
