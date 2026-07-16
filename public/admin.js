@@ -401,8 +401,59 @@ class="deleteButton">
 
 }        
 
-function showVideos() {
+function showVideos(){
 
-    alert("Відео (поки що в розробці)");
+document.body.innerHTML=`
+
+<div class="dashboard">
+
+<div class="topCard">
+
+<h1>🎥 Відео</h1>
+
+<p>
+
+Керування відео
+
+</p>
+
+</div>
+
+<div class="sectionBox">
+
+<div class="sectionTop">
+
+<h2>
+
+Відео
+
+</h2>
+
+<button
+id="addVideo"
+class="addButton">
+
++ Додати відео
+
+</button>
+
+</div>
+
+<input
+id="videoInput"
+type="file"
+accept="video/*"
+hidden>
+
+<div id="videoList"></div>
+
+</div>
+
+</div>
+
+`;
+
+initVideos();
+loadVideosFromSupabase();
 
 }
