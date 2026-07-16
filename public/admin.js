@@ -164,9 +164,21 @@ function initPhotos(){
 
     });
 
-    input.addEventListener("change",(e)=>{
+    input.addEventListener("change", async (e)=>{
 
         const files=[...e.target.files];
+        const file = files[0];
+
+if (!file) return;
+
+const fileName = Date.now() + "_" + file.name;
+
+const { data, error } = await window.db.storage
+    .from("photos")
+    .upload(fileName, file);
+
+console.log("UPLOAD:", data);
+console.log("ERROR:", error);
        console.log("Bucket:", window.db.storage.from("photos"));
        console.log(window.db);
         list.innerHTML="";
