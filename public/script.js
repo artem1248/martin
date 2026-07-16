@@ -619,6 +619,10 @@ playVoice.addEventListener("click",()=>{
 
     martinVoice.play();
 
+    playVoice.disabled = true;
+
+    playVoice.innerHTML = "🐾 Мартін говорить...";
+
 });
 
 closeVoice.addEventListener("click",()=>{
@@ -629,6 +633,12 @@ closeVoice.addEventListener("click",()=>{
 
 martinVoice.addEventListener("ended",()=>{
 
-    voicePopup.style.display="none";
+    playVoice.innerHTML = "❤️ Прослухано";
+
+    setTimeout(()=>{
+
+        voicePopup.style.display="none";
+
+    },1000);
 
 });
