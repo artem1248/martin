@@ -457,3 +457,10 @@ initVideos();
 loadVideosFromSupabase();
 
 }
+function initVideos(){
+
+}
+
+async function loadVideosFromSupabase(){
+
+}
