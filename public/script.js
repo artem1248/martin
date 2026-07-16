@@ -658,3 +658,30 @@ card.classList.toggle("flipped");
 });
 
 });
+const telegramBtn = document.getElementById("telegramBtn");
+const telegramPopup = document.getElementById("telegramPopup");
+const closeTelegram = document.getElementById("closeTelegram");
+
+telegramBtn.addEventListener("click",(e)=>{
+
+e.preventDefault();
+
+telegramPopup.classList.add("show");
+
+});
+
+closeTelegram.addEventListener("click",()=>{
+
+telegramPopup.classList.remove("show");
+
+});
+
+telegramPopup.addEventListener("click",(e)=>{
+
+if(e.target===telegramPopup){
+
+telegramPopup.classList.remove("show");
+
+}
+
+});
