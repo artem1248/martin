@@ -1337,6 +1337,16 @@ margin-bottom:18px;
 
 }
 
+.donateHeart{
+
+font-size:44px;
+
+margin-bottom:18px;
+
+animation:heartBeat 2s infinite;
+
+}
+
 .donateModal p{
 
 font-size:17px;
@@ -2089,6 +2099,22 @@ transform:translateY(0);
 50%{
 
 transform:translateY(-8px);
+
+}
+
+}
+
+@keyframes heartBeat{
+
+0%,100%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.12);
 
 }
 
