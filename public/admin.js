@@ -459,6 +459,15 @@ loadVideosFromSupabase();
 }
 function initVideos(){
 
+    const addButton = document.getElementById("addVideo");
+    const input = document.getElementById("videoInput");
+
+    addButton.addEventListener("click",()=>{
+
+        input.click();
+
+    });
+
 }
 
 async function loadVideosFromSupabase(){
