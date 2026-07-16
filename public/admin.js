@@ -281,8 +281,6 @@ async function deletePhoto(photo){
     }
     console.log(photo);
 
-    const imageUrl = photo.image_url;
-
     const fileName = photo.file_name;
 
     const { error: storageError } = await window.db.storage
@@ -309,6 +307,14 @@ console.log("До удаления:", before);
         .from("photos")
         .delete()
         .eq("id", photo.id);
+    console.log("Удаляем ID:", photo.id);
+
+const check = await window.db
+    .from("photos")
+    .select("*")
+    .eq("id", photo.id);
+
+console.log("После delete проверка:", check);
     console.log("DB ERROR:", dbError);
 
     if(dbError){
@@ -321,7 +327,7 @@ console.log("До удаления:", before);
 
     }
 
-    loadPhotosFromSupabase();
+    await loadPhotosFromSupabase();
     const { data: after } = await window.db
     .from("photos")
     .select("*");
