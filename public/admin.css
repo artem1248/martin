@@ -350,3 +350,52 @@ gap:12px;
 color:#786C61;
 
 }
+.photoRow{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:14px 18px;
+
+margin-bottom:12px;
+
+background:#F7F3EE;
+
+border-radius:18px;
+
+border:1px solid rgba(0,0,0,.05);
+
+}
+
+.photoRow span{
+
+font-size:15px;
+
+font-weight:600;
+
+color:#3B3027;
+
+}
+
+.deleteButton{
+
+border:none;
+
+background:transparent;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.deleteButton:hover{
+
+transform:scale(1.15);
+
+}
