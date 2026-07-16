@@ -141,15 +141,7 @@ accept="image/*"
 multiple
 hidden>
 
-<div id="photoList">
-
-<p>
-
-Поки що фотографій немає 🐾
-
-</p>
-
-</div>
+<div id="photoList"></div>
 
 </div>
 
