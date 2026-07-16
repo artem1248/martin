@@ -178,61 +178,7 @@ function initPhotos(){
 
         }
 
-        files.forEach(file=>{
-
-            const row=document.createElement("div");
-
-            row.className="photoRow";
-
-            row.innerHTML=`
-
-                <span>📷 ${file.name}</span>
-
-                <button class="deleteButton">🗑</button>
-
-            `;
-
-            row.querySelector(".deleteButton").addEventListener("click",()=>{
-
-                row.remove();
-
-            });
-
-            list.appendChild(row);
-
-        });
-
-    });
-
-}
-
-        files.forEach(file=>{
-
-            const row=document.createElement("div");
-
-            row.className="photoRow";
-
-            row.innerHTML=`
-
-                <span>📷 ${file.name}</span>
-
-                <button class="deleteButton">🗑</button>
-
-            `;
-
-            row.querySelector(".deleteButton").addEventListener("click",()=>{
-
-                row.remove();
-
-            });
-
-            list.appendChild(row);
-
-        });
-
-    });
-
-}
+        
 
 function showVideos() {
 
