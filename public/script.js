@@ -207,11 +207,14 @@ async function loadPhotos(){
 
     try{
 
-        const response = await fetch(
-            "data/photos.json"
-        );
+        const { data: photos, error } = await window.db
+    .from("photos")
+    .select("*");
 
-        const photos = await response.json();
+if(error){
+    console.error(error);
+    return;
+}
 
         if(!photoSlider) return;
 
@@ -219,7 +222,7 @@ async function loadPhotos(){
 
         for(const photo of photos){
 
-            await preloadImage(photo.image);
+            await preloadImage(photo.image_url);
 
             const card = document.createElement("div");
 
@@ -228,7 +231,7 @@ async function loadPhotos(){
             card.innerHTML = `
 
 <img
-src="${photo.image}"
+src="${photo.image_url}"
 alt="Martin">
 
 `;
@@ -238,7 +241,7 @@ alt="Martin">
 
             card.addEventListener(
                 "click",
-                ()=>openViewer(photo.image)
+                ()=>openViewer(photo.image_url)
             );
 
             photoSlider.appendChild(card);
