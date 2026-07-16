@@ -195,10 +195,11 @@ console.log("ERROR:", error);
     const { error: dbError } = await window.db
         .from("photos")
         .insert([
-            {
-                image_url: imageUrl
-            }
-        ]);
+    {
+        image_url: imageUrl,
+        file_name: fileName
+    }
+]);
 
     console.log("DB ERROR:", dbError);
            if(!dbError){
@@ -282,7 +283,7 @@ async function deletePhoto(photo){
 
     const imageUrl = photo.image_url;
 
-    const fileName = imageUrl.split("/").pop();
+    const fileName = photo.file_name;
 
     const { error: storageError } = await window.db.storage
         .from("photos")
