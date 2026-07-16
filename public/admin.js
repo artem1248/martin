@@ -485,6 +485,24 @@ function initVideos(){
 
     });
 
+    input.addEventListener("change", async (e)=>{
+
+        const file = e.target.files[0];
+
+        if(!file) return;
+
+        const extension = file.name.split(".").pop();
+
+        const fileName = Date.now() + "." + extension;
+
+        const { error } = await window.db.storage
+            .from("videos")
+            .upload(fileName, file);
+
+        console.log("VIDEO ERROR:", error);
+
+    });
+
 }
 
 async function loadVideosFromSupabase(){
