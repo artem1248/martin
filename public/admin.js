@@ -96,9 +96,97 @@ function showAdmin() {
 
 }
 
-function showPhotos() {
+function showPhotos(){
 
-    alert("Фото (поки що в розробці)");
+document.body.innerHTML=`
+
+<div class="dashboard">
+
+<div class="topCard">
+
+<h1>📷 Фото</h1>
+
+<p>
+
+Керування фотографіями
+
+</p>
+
+</div>
+
+<div class="sectionBox">
+
+<div class="sectionTop">
+
+<h2>
+
+Фотографії
+
+</h2>
+
+<button
+id="addPhoto"
+class="addButton">
+
++ Додати фото
+
+</button>
+
+</div>
+
+<input
+id="photoInput"
+type="file"
+accept="image/*"
+multiple
+hidden>
+
+<div id="photoList">
+
+<p>
+
+Поки що фотографій немає 🐾
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+initPhotos();
+
+}
+function initPhotos(){
+
+document
+
+.getElementById("addPhoto")
+
+.addEventListener("click",()=>{
+
+document
+
+.getElementById("photoInput")
+
+.click();
+
+});
+
+document
+
+.getElementById("photoInput")
+
+.addEventListener("change",(e)=>{
+
+const files=e.target.files;
+
+alert("Вибрано "+files.length+" фото");
+
+});
 
 }
 
