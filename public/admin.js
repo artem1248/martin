@@ -150,6 +150,7 @@ hidden>
 `;
 
 initPhotos();
+    loadPhotosFromSupabase();
 
 }
 function initPhotos(){
@@ -266,7 +267,63 @@ ${Math.round(file.size/1024)} KB
 
 }
 
-        
+async function loadPhotosFromSupabase(){
+
+    const list = document.getElementById("photoList");
+
+    list.innerHTML = "";
+
+    const { data, error } = await window.db
+        .from("photos")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if(error){
+
+        console.error(error);
+
+        return;
+
+    }
+
+    data.forEach(photo=>{
+
+        const row=document.createElement("div");
+
+        row.className="photoRow";
+
+        row.innerHTML=`
+
+<div class="photoInfo">
+
+<img src="${photo.image_url}">
+
+<div>
+
+<div class="photoName">
+
+Фото
+
+</div>
+
+</div>
+
+</div>
+
+<button
+class="deleteButton">
+
+🗑
+
+</button>
+
+`;
+
+        list.appendChild(row);
+
+    });
+
+}        
 
 function showVideos() {
 
