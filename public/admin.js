@@ -152,6 +152,59 @@ hidden>
 initPhotos();
 
 }
+function initPhotos(){
+
+    const addButton = document.getElementById("addPhoto");
+    const input = document.getElementById("photoInput");
+    const list = document.getElementById("photoList");
+
+    addButton.addEventListener("click",()=>{
+
+        input.click();
+
+    });
+
+    input.addEventListener("change",(e)=>{
+
+        const files=[...e.target.files];
+
+        list.innerHTML="";
+
+        if(files.length===0){
+
+            list.innerHTML="<p>Поки що фотографій немає 🐾</p>";
+
+            return;
+
+        }
+
+        files.forEach(file=>{
+
+            const row=document.createElement("div");
+
+            row.className="photoRow";
+
+            row.innerHTML=`
+
+                <span>📷 ${file.name}</span>
+
+                <button class="deleteButton">🗑</button>
+
+            `;
+
+            row.querySelector(".deleteButton").addEventListener("click",()=>{
+
+                row.remove();
+
+            });
+
+            list.appendChild(row);
+
+        });
+
+    });
+
+}
 
         files.forEach(file=>{
 
