@@ -2122,41 +2122,49 @@ transform:scale(1.12);
 
 .voicePaws{
 
+display:inline-flex;
+
+gap:2px;
+
+margin-right:6px;
+
+}
+
+.voicePaws span{
+
 display:inline-block;
 
-animation:voicePaws .8s infinite;
+animation:runPaws .6s infinite;
 
 }
 
-@keyframes voicePaws{
+.voicePaws span:nth-child(2){
 
-0%{
-
-transform:translateX(0);
+animation-delay:.15s;
 
 }
 
-25%{
+.voicePaws span:nth-child(3){
 
-transform:translateX(3px);
+animation-delay:.30s;
+
+}
+
+@keyframes runPaws{
+
+0%,100%{
+
+transform:translateY(0);
+
+opacity:.5;
 
 }
 
 50%{
 
-transform:translateX(0);
+transform:translateY(-4px);
 
-}
-
-75%{
-
-transform:translateX(-3px);
-
-}
-
-100%{
-
-transform:translateX(0);
+opacity:1;
 
 }
 
