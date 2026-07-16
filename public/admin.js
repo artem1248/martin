@@ -201,6 +201,11 @@ console.log("ERROR:", error);
         ]);
 
     console.log("DB ERROR:", dbError);
+           if(!dbError){
+
+    loadPhotosFromSupabase();
+
+}
 
 }
        console.log("Bucket:", window.db.storage.from("photos"));
