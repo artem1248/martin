@@ -278,6 +278,7 @@ async function deletePhoto(photo){
         return;
 
     }
+    console.log(photo);
 
     const imageUrl = photo.image_url;
 
