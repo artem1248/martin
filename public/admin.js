@@ -168,8 +168,7 @@ function initPhotos(){
 
         const files=[...e.target.files];
        console.log("Bucket:", window.db.storage.from("photos"));
-        console.log(supabase);
-
+       console.log(window.db);
         list.innerHTML="";
 
         if(files.length===0){
