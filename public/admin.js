@@ -171,7 +171,9 @@ function initPhotos(){
 
 if (!file) return;
 
-const fileName = Date.now() + "_" + file.name;
+const extension = file.name.split(".").pop();
+
+const fileName = Date.now() + "." + extension;
 
 const { data, error } = await window.db.storage
     .from("photos")
