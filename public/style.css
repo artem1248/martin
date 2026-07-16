@@ -1279,17 +1279,17 @@ position:relative;
 
 width:100%;
 
-max-width:420px;
+max-width:380px;
 
 background:#fff;
 
-border-radius:34px;
+border-radius:32px;
 
-padding:30px;
+padding:34px 28px;
 
-box-shadow:
+box-shadow:0 25px 70px rgba(0,0,0,.18);
 
-0 25px 70px rgba(0,0,0,.18);
+text-align:center;
 
 }
 
@@ -1327,23 +1327,25 @@ height:18px;
 
 .donateModal h2{
 
-font-size:30px;
+font-size:28px;
 
 font-weight:800;
 
-margin-bottom:14px;
+line-height:1.25;
+
+margin-bottom:18px;
 
 }
 
 .donateModal p{
 
-font-size:16px;
+font-size:17px;
 
-line-height:1.7;
+line-height:1.8;
 
 color:var(--textLight);
 
-margin-bottom:22px;
+margin-bottom:30px;
 
 }
 
@@ -1355,7 +1357,7 @@ align-items:center;
 
 justify-content:center;
 
-height:56px;
+height:58px;
 
 border-radius:18px;
 
@@ -1363,9 +1365,23 @@ background:#1F1A17;
 
 color:#fff;
 
+font-size:17px;
+
 font-weight:700;
 
-margin-bottom:18px;
+transition:.25s;
+
+}
+
+.donateLink:hover{
+
+transform:translateY(-2px);
+
+}
+
+.donateLink:active{
+
+transform:scale(.97);
 
 }
 
