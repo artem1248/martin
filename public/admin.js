@@ -271,6 +271,50 @@ ${Math.round(file.size/1024)} KB
     });
 
 }
+async function deletePhoto(photo){
+
+    if(!confirm("Видалити фотографію?")){
+
+        return;
+
+    }
+
+    const imageUrl = photo.image_url;
+
+    const fileName = imageUrl.split("/").pop();
+
+    const { error: storageError } = await window.db.storage
+        .from("photos")
+        .remove([fileName]);
+
+    if(storageError){
+
+        console.error(storageError);
+
+        alert("Не вдалося видалити фото.");
+
+        return;
+
+    }
+
+    const { error: dbError } = await window.db
+        .from("photos")
+        .delete()
+        .eq("id", photo.id);
+
+    if(dbError){
+
+        console.error(dbError);
+
+        alert("Не вдалося видалити запис.");
+
+        return;
+
+    }
+
+    loadPhotosFromSupabase();
+
+}
 
 async function loadPhotosFromSupabase(){
 
@@ -325,6 +369,11 @@ class="deleteButton">
 `;
 
         list.appendChild(row);
+        row.querySelector(".deleteButton").addEventListener("click",()=>{
+
+    deletePhoto(photo);
+
+});
 
     });
 
