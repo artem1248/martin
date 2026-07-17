@@ -1475,30 +1475,37 @@ margin-bottom:30px;
 .donateLink{
 
 display:flex;
-
 align-items:center;
-
 justify-content:center;
 
-height:58px;
+height:62px;
 
-border-radius:18px;
+border-radius:20px;
 
-background:#1F1A17;
+background:linear-gradient(135deg,#ff5b6a,#ff1744);
 
 color:#fff;
 
-font-size:17px;
+font-size:19px;
+font-weight:800;
 
-font-weight:700;
+box-shadow:0 12px 30px rgba(255,40,80,.40);
 
-transition:.25s;
+transition:all .25s ease;
 
 }
 
 .donateLink:hover{
 
-transform:translateY(-2px);
+transform:translateY(-3px) scale(1.03);
+
+box-shadow:0 18px 40px rgba(255,40,80,.55);
+
+}
+
+.donateLink:active{
+
+transform:scale(.97);
 
 }
 
