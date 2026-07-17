@@ -121,6 +121,8 @@ body{
 
 <script src="supabase.js"></script>
 
+<script src="config.js"></script>
+
 <script>
 
 const grid=document.getElementById("grid");
