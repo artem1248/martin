@@ -278,43 +278,46 @@ alt="Martin">
 
 async function loadVideos(){
 
-    const { data: videos, error } = await window.db
-        .from("videos")
-        .select("*")
-        .order("created_at", { ascending: false });
+   async function loadVideos(){
 
-    if(error){
-        console.error(error);
-        return;
+    try{
+
+        const { data: videos, error } = await window.db
+            .from("videos")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+        if(error){
+            console.error(error);
+            return;
+        }
+
+        if(!videoSlider) return;
+
+        videoSlider.innerHTML = "";
+
+        videos.forEach(video=>{
+
+            const card = document.createElement("div");
+
+            card.className = "videoCard";
+
+            card.innerHTML = `
+                <video
+                    src="${video.video_url}"
+                    controls
+                    preload="metadata">
+                </video>
+            `;
+
+            videoSlider.appendChild(card);
+
+        });
+
     }
-
-    videoSlider.innerHTML = "";
-
-    videos.forEach(video=>{
-
-        const card = document.createElement("div");
-
-        card.className = "videoCard";
-
-        card.innerHTML = `
-            <video
-                src="${video.video_url}"
-                controls
-                preload="metadata">
-            </video>
-        `;
-
-        videoSlider.appendChild(card);
-
-    });
-
-}
     catch(error){
 
-        console.error(
-            "Videos:",
-            error
-        );
+        console.error("Videos:", error);
 
     }
 
