@@ -301,12 +301,14 @@ async function loadVideos(){
             card.className = "videoCard";
 
             card.innerHTML = `
-                <video
-                    src="${video.video_url}"
-                    controls
-                    preload="metadata"
-                    style="width:100%; border-radius:16px;">
-                </video>
+               <video
+    src="${video.video_url}"
+    controls
+    preload="auto"
+    playsinline
+    muted
+    style="width:100%; border-radius:16px;">
+</video>
             `;
 
             videoSlider.appendChild(card);
