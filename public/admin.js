@@ -533,6 +533,7 @@ async function loadVideosFromSupabase(){
         return;
 
     }
+    data.forEach(video => console.log(video));
 
     data.forEach(video=>{
 
