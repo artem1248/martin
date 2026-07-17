@@ -569,18 +569,15 @@ async function loadVideosFromSupabase(){
 
 `;
 
-        list.appendChild(row);
+                list.appendChild(row);
+
         row.querySelector(".deleteButton").addEventListener("click",()=>{
 
-    deleteVideo(video);
+            deleteVideo(video);
 
-});
+        });
 
     });
-
-}
-
-});
 
 }
 async function deleteVideo(video){
