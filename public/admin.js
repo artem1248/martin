@@ -573,7 +573,10 @@ async function loadVideosFromSupabase(){
         row.querySelector(".deleteButton").addEventListener("click",()=>{
 
     deleteVideo(video);
-                });
+
+});
+
+    });
 
 }
 
