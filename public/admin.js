@@ -543,28 +543,37 @@ async function loadVideosFromSupabase(){
 
         row.className="photoRow";
 
-        row.innerHTML=`
+       row.innerHTML = `
 
 <div class="photoInfo">
 
-<video src="${video.video_url}" width="90" controls></video>
+    <video src="${video.video_url}" width="90" controls></video>
 
-<div>
+    <div>
 
-<div class="photoName">
+        <div class="photoName">
 
-Відео
+            Відео
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
+<button class="deleteButton">
 
-</div>
+🗑
+
+</button>
 
 `;
 
         list.appendChild(row);
+        row.querySelector(".deleteButton").addEventListener("click",()=>{
 
-    });
+    deleteVideo(video);
+
+});
 
 }
