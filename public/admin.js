@@ -573,7 +573,40 @@ async function loadVideosFromSupabase(){
         row.querySelector(".deleteButton").addEventListener("click",()=>{
 
     deleteVideo(video);
+                });
+
+}
 
 });
+
+}
+async function deleteVideo(video){
+
+    if(!confirm("Видалити відео?")){
+        return;
+    }
+
+    const { error: storageError } = await window.db.storage
+        .from("videos")
+        .remove([video.file_name]);
+
+    if(storageError){
+        console.error(storageError);
+        alert("Не вдалося видалити відео.");
+        return;
+    }
+
+    const { error: dbError } = await window.db
+        .from("videos")
+        .delete()
+        .eq("id", video.id);
+
+    if(dbError){
+        console.error(dbError);
+        alert("Не вдалося видалити запис.");
+        return;
+    }
+
+    loadVideosFromSupabase();
 
 }
