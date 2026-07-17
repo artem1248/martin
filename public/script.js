@@ -301,7 +301,6 @@ async function loadVideos(){
             card.className = "videoCard";
 
             card.innerHTML = `
-              card.innerHTML = `
 <video
     src="${video.video_url}"
     poster="${video.poster_url || ""}"
