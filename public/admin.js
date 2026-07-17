@@ -174,11 +174,46 @@ function initPhotos(){
 
     const fileName = Date.now() + "." + extension;
 
+    input.addEventListener("change", async (e)=>{
+
+    const file = e.target.files[0];
+
+    if(!file) return;
+
+    const extension = file.name.split(".").pop();
+
+    const fileName = Date.now() + "." + extension;
+
     const { error } = await window.db.storage
         .from("videos")
         .upload(fileName, file);
 
     console.log("VIDEO ERROR:", error);
+
+    if(error) return;
+
+    const { data: urlData } = window.db.storage
+        .from("videos")
+        .getPublicUrl(fileName);
+
+    const videoUrl = urlData.publicUrl;
+
+    const { error: dbError } = await window.db
+        .from("videos")
+        .insert([
+            {
+                video_url: videoUrl,
+                file_name: fileName
+            }
+        ]);
+
+    console.log("DB ERROR:", dbError);
+
+    if(!dbError){
+
+        loadVideosFromSupabase();
+
+    }
 
 });
 
@@ -506,5 +541,52 @@ function initVideos(){
 }
 
 async function loadVideosFromSupabase(){
+
+    const list = document.getElementById("videoList");
+
+    list.innerHTML = "";
+
+    const { data, error } = await window.db
+        .from("videos")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if(error){
+
+        console.error(error);
+
+        return;
+
+    }
+
+    data.forEach(video=>{
+
+        const row=document.createElement("div");
+
+        row.className="photoRow";
+
+        row.innerHTML=`
+
+<div class="photoInfo">
+
+<video src="${video.video_url}" width="90" controls></video>
+
+<div>
+
+<div class="photoName">
+
+Відео
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+        list.appendChild(row);
+
+    });
 
 }
