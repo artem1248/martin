@@ -280,8 +280,6 @@ async function loadVideos(){
 
    async function loadVideos(){
 
-    try{
-
         const { data: videos, error } = await window.db
             .from("videos")
             .select("*")
