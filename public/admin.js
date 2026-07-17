@@ -446,6 +446,12 @@ type="file"
 accept="video/*"
 hidden>
 
+<input
+id="posterInput"
+type="file"
+accept="image/*"
+hidden>
+
 <div id="videoList"></div>
 
 </div>
@@ -461,7 +467,10 @@ loadVideosFromSupabase();
 function initVideos(){
 
     const addButton = document.getElementById("addVideo");
-    const input = document.getElementById("videoInput");
+const input = document.getElementById("videoInput");
+const posterInput = document.getElementById("posterInput");
+
+let selectedVideo = null;
 
     addButton.addEventListener("click",()=>{
 
@@ -470,6 +479,13 @@ function initVideos(){
     });
 
     input.addEventListener("change", async (e)=>{
+        selectedVideo = e.target.files[0];
+
+if(!selectedVideo) return;
+
+posterInput.click();
+
+return;
 
         const file = e.target.files[0];
 
