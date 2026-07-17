@@ -452,6 +452,36 @@ type="file"
 accept="image/*"
 hidden>
 
+<div style="margin:20px 0">
+
+<button
+id="chooseVideo"
+class="addButton">
+
+🎥 Обрати відео
+
+</button>
+
+<button
+id="choosePoster"
+class="addButton"
+style="margin-left:10px">
+
+🖼 Обрати обкладинку
+
+</button>
+
+<button
+id="uploadVideo"
+class="addButton"
+style="margin-left:10px">
+
+⬆ Завантажити
+
+</button>
+
+</div>
+
 <div id="videoList"></div>
 
 </div>
