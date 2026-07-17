@@ -17,7 +17,7 @@ passwordInput.addEventListener("keydown", (e) => {
 });
 
 function login() {
-
+const { data, error } = await window.db
     error.textContent = "";
 
     if (passwordInput.value !== PASSWORD) {
@@ -348,6 +348,8 @@ async function loadPhotosFromSupabase(){
         .from("photos")
         .select("*")
         .order("created_at", { ascending: false });
+    console.log("VIDEOS:", data);
+console.log("ERROR:", error);
 
     if(error){
 
@@ -536,6 +538,7 @@ async function loadVideosFromSupabase(){
     data.forEach(video => console.log(video));
 
     data.forEach(video=>{
+        console.log(video.video_url);
 
         const row=document.createElement("div");
 
