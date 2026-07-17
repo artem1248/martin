@@ -23,7 +23,41 @@
 </div>
 
 <script>
+async function loadVideos() {
 
+    const { data, error } = await window.db
+        .from("videos")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    const grid = document.getElementById("videosGrid");
+
+    data.forEach(video => {
+
+        const card = document.createElement("div");
+
+        card.innerHTML = `
+            <video
+                controls
+                poster="${video.poster_url || ""}"
+                style="width:100%;border-radius:16px;"
+            >
+                <source src="${video.video_url}" type="video/mp4">
+            </video>
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+loadVideos();
 </script>
 
 </body>
