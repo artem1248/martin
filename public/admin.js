@@ -496,19 +496,50 @@ loadVideosFromSupabase();
 }
 function initVideos(){
 
-    const addButton = document.getElementById("addVideo");
+    const chooseVideo = document.getElementById("chooseVideo");
+const choosePoster = document.getElementById("choosePoster");
+const uploadButton = document.getElementById("uploadVideo");
+
 const input = document.getElementById("videoInput");
 const posterInput = document.getElementById("posterInput");
 
 let selectedVideo = null;
+let selectedPoster = null;
 
-    addButton.addEventListener("click",()=>{
+    chooseVideo.addEventListener("click",()=>{
 
-        input.click();
+    input.click();
 
-    });
+});
 
-    input.addEventListener("change", async (e)=>{
+choosePoster.addEventListener("click",()=>{
+
+    posterInput.click();
+
+});
+
+   input.addEventListener("change",(e)=>{
+
+    selectedVideo = e.target.files[0];
+
+    if(selectedVideo){
+
+        alert("✅ Відео вибрано");
+
+    }
+
+});
+    posterInput.addEventListener("change",(e)=>{
+
+    selectedPoster = e.target.files[0];
+
+    if(selectedPoster){
+
+        alert("✅ Обкладинку вибрано");
+
+    }
+
+});
         selectedVideo = e.target.files[0];
 
 if(!selectedVideo) return;
