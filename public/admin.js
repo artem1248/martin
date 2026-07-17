@@ -540,6 +540,92 @@ choosePoster.addEventListener("click",()=>{
     }
 
 });
+    uploadButton.addEventListener("click", async ()=>{
+
+    if(!selectedVideo){
+
+        alert("Спочатку виберіть відео");
+        return;
+
+    }
+
+    if(!selectedPoster){
+
+        alert("Спочатку виберіть обкладинку");
+        return;
+
+    }
+
+    const extension = selectedVideo.name.split(".").pop();
+
+    const fileName = Date.now() + "." + extension;
+
+    const posterName = Date.now() + "_poster." +
+        selectedPoster.name.split(".").pop();
+
+    // Загружаем видео
+    const { error: videoError } = await window.db.storage
+        .from("videos")
+        .upload(fileName, selectedVideo);
+
+    if(videoError){
+
+        console.error(videoError);
+        alert("Помилка завантаження відео");
+        return;
+
+    }
+
+    // Загружаем обложку
+    const { error: posterError } = await window.db.storage
+        .from("video-posters")
+        .upload(posterName, selectedPoster);
+
+    if(posterError){
+
+        console.error(posterError);
+        alert("Помилка завантаження обкладинки");
+        return;
+
+    }
+
+    const { data: videoData } = window.db.storage
+        .from("videos")
+        .getPublicUrl(fileName);
+
+    const { data: posterData } = window.db.storage
+        .from("video-posters")
+        .getPublicUrl(posterName);
+
+    const { error: dbError } = await window.db
+        .from("videos")
+        .insert([
+            {
+                video_url: videoData.publicUrl,
+                poster_url: posterData.publicUrl,
+                file_name: fileName
+            }
+        ]);
+
+    if(dbError){
+
+        console.error(dbError);
+        alert("Помилка запису в базу");
+        return;
+
+    }
+
+    alert("✅ Відео завантажено");
+
+    selectedVideo = null;
+    selectedPoster = null;
+
+    input.value = "";
+    posterInput.value = "";
+
+    loadVideosFromSupabase();
+
+});
 }
 async function loadVideosFromSupabase(){
 
