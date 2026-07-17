@@ -17,7 +17,6 @@ passwordInput.addEventListener("keydown", (e) => {
 });
 
 function login() {
-const { data, error } = await window.db
     error.textContent = "";
 
     if (passwordInput.value !== PASSWORD) {
