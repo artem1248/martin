@@ -278,92 +278,37 @@ alt="Martin">
 
 async function loadVideos(){
 
-    try{
+    const { data: videos, error } = await window.db
+        .from("videos")
+        .select("*")
+        .order("created_at", { ascending: false });
 
-        const response = await fetch(
-            "data/videos.json"
-        );
-
-        const videos = await response.json();
-
-        if(!videoSlider) return;
-
-        videoSlider.innerHTML = "";
-
-        for(const video of videos){
-
-            await preloadImage(video.image);
-
-            const card = document.createElement("div");
-
-            card.className = "videoCard";
-
-            card.innerHTML = `
-
-<div class="videoPreview">
-
-    <img
-    src="${video.image}"
-    alt="${video.title}">
-
-    <div class="videoDuration">
-
-        ${video.duration}
-
-    </div>
-
-</div>
-
-<div class="videoInfo">
-
-    <h3>
-
-        ${video.title}
-
-    </h3>
-
-    <p>
-
-        ${video.views}
-
-    </p>
-
-</div>
-
-`;
-
-            card.style.opacity = "0";
-            card.style.transform = "translateY(20px)";
-
-            if(video.url){
-
-                card.addEventListener("click",()=>{
-
-                    window.open(
-                        video.url,
-                        "_blank"
-                    );
-
-                });
-
-            }
-
-            videoSlider.appendChild(card);
-
-            requestAnimationFrame(()=>{
-
-                card.style.transition=".35s ease";
-
-                card.style.opacity="1";
-
-                card.style.transform="translateY(0)";
-
-            });
-
-        }
-
+    if(error){
+        console.error(error);
+        return;
     }
 
+    videoSlider.innerHTML = "";
+
+    videos.forEach(video=>{
+
+        const card = document.createElement("div");
+
+        card.className = "videoCard";
+
+        card.innerHTML = `
+            <video
+                src="${video.video_url}"
+                controls
+                preload="metadata">
+            </video>
+        `;
+
+        videoSlider.appendChild(card);
+
+    });
+
+}
     catch(error){
 
         console.error(
