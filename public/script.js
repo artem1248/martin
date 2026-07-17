@@ -278,7 +278,9 @@ alt="Martin">
 
 async function loadVideos(){
 
-   async function loadVideos(){
+  async function loadVideos(){
+
+    try{
 
         const { data: videos, error } = await window.db
             .from("videos")
@@ -294,7 +296,7 @@ async function loadVideos(){
 
         videoSlider.innerHTML = "";
 
-        videos.forEach(video=>{
+        videos.forEach(video => {
 
             const card = document.createElement("div");
 
@@ -304,7 +306,8 @@ async function loadVideos(){
                 <video
                     src="${video.video_url}"
                     controls
-                    preload="metadata">
+                    preload="metadata"
+                    style="width:100%; border-radius:16px;">
                 </video>
             `;
 
@@ -312,8 +315,7 @@ async function loadVideos(){
 
         });
 
-    }
-    catch(error){
+    } catch(error){
 
         console.error("Videos:", error);
 
