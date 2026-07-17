@@ -540,58 +540,6 @@ choosePoster.addEventListener("click",()=>{
     }
 
 });
-        selectedVideo = e.target.files[0];
-
-if(!selectedVideo) return;
-
-posterInput.click();
-
-return;
-
-        const file = e.target.files[0];
-
-        if(!file) return;
-
-        const extension = file.name.split(".").pop();
-
-        const fileName = Date.now() + "." + extension;
-
-        // Загружаем в Storage
-        const { error } = await window.db.storage
-            .from("videos")
-            .upload(fileName, file);
-
-        console.log("VIDEO ERROR:", error);
-
-        if(error) return;
-
-        // Получаем публичную ссылку
-        const { data: urlData } = window.db.storage
-            .from("videos")
-            .getPublicUrl(fileName);
-
-        const videoUrl = urlData.publicUrl;
-
-        // Записываем в таблицу videos
-        const { error: dbError } = await window.db
-            .from("videos")
-            .insert([
-                {
-                    video_url: videoUrl,
-                    file_name: fileName
-                }
-            ]);
-
-        console.log("DB ERROR:", dbError);
-
-        if(!dbError){
-
-            loadVideosFromSupabase();
-
-        }
-
-    });
-
 }
 async function loadVideosFromSupabase(){
 
