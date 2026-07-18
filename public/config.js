@@ -2,9 +2,9 @@ const CONFIG = {
 
     tiktok: "https://www.tiktok.com/",
 
-    instagram: "https://www.instagram.com/?hl=ru",
+    instagram: "https://www.instagram.com/martinkingsman_?igsh=dzdzNnFld2w0cThm",
 
-    youtube: "https://www.youtube.com/?hl=uk&gl=UA&app=desktop",
+    youtube: "https://www.youtube.com/@MartinKingsman",
 
     telegram: "",
 
