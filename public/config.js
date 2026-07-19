@@ -1,6 +1,6 @@
 const CONFIG = {
 
-    tiktok: "https://www.tiktok.com/",
+    tiktok: "https://www.tiktok.com/@martinkingsman_?_r=1&_t=ZS-98A5md4zjYf",
 
     instagram: "https://www.instagram.com/martinkingsman_?igsh=dzdzNnFld2w0cThm",
 
