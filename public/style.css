@@ -700,7 +700,8 @@ background:#fff;
 
 border-radius:28px;
 
-box-shadow:0 15px 35px rgba(0,0,0,.08);
+box-shadow:
+0 22px 60px rgba(0,0,0,.06);
 
 backface-visibility:hidden;
 
@@ -897,7 +898,8 @@ border-radius:28px;
 
 overflow:hidden;
 
-box-shadow:0 14px 36px rgba(0,0,0,.08);
+box-shadow:
+0 22px 60px rgba(0,0,0,.06);
 
 transition:.3s;
 
@@ -909,7 +911,8 @@ cursor:pointer;
 
 transform:translateY(-6px);
 
-box-shadow:0 22px 48px rgba(0,0,0,.12);
+box-shadow:
+0 28px 70px rgba(0,0,0,.09);
 
 }
 
@@ -1859,7 +1862,7 @@ transition:.25s;
 .supportButton:hover,
 .sendDonate:hover{
 
-transform:translateY(-2px);
+transform:translateY(-4px) scale(1.015);
 
 }
 
@@ -2410,7 +2413,8 @@ border-radius:24px;
 
 padding:18px 14px;
 
-box-shadow:0 10px 30px rgba(0,0,0,.07);
+box-shadow:
+0 20px 55px rgba(0,0,0,.06);
 
 text-align:center;
 
