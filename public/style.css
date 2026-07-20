@@ -696,12 +696,18 @@ justify-content:center;
 
 align-items:center;
 
-background:#fff;
+background:linear-gradient(
+180deg,
+#FDFBF8 0%,
+#F7F2EB 100%
+);
 
 border-radius:28px;
 
 box-shadow:
-0 22px 60px rgba(0,0,0,.06);
+0 12px 40px rgba(20,18,15,.08);
+   position: relative;
+overflow: hidden;
 
 backface-visibility:hidden;
 
@@ -710,12 +716,27 @@ padding:18px;
 text-align:center;
 
 }
+.loveFront::before,
+.loveBack::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:1px;
+
+    background:rgba(255,255,255,.8);
+
+}
 
 .loveFront img{
 
-width:52px;
-
-height:52px;
+width:46px;
+height:46px;
 
 }
 
@@ -761,7 +782,8 @@ margin-bottom:18px;
 
 .loveCard h3{
 
-font-size:18px;
+font-size:19px;
+letter-spacing:.4px;
 
 font-weight:800;
 
