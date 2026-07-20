@@ -11,17 +11,17 @@ box-sizing:border-box;
 
 :root{
 
---bg:#F5F2EC;
---card:#FCF8F2;
+--bg:#F3EFE8;
+--card:#FBF7F1;
 --text:#241C16;
 --textLight:#786C61;
 
 --white:#FFFFFF;
 
 --shadow:
-0 10px 35px rgba(0,0,0,.08);
+0 18px 55px rgba(0,0,0,.06);
 
---radius:28px;
+--radius:24px;
 
 }
 
@@ -436,6 +436,11 @@ transition:.25s;
 overflow:hidden;
 
 isolation:isolate;
+   border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 16px 40px rgba(0,0,0,.18),
+inset 0 1px 0 rgba(255,255,255,.08);
 
 }
 .socialButton::before{
@@ -509,7 +514,11 @@ animation-delay:1.5s;
 
 .tiktok{
 
-background:rgba(0,0,0,.45);
+background:linear-gradient(
+180deg,
+#2A2A2A,
+#141414
+);
 
 }
 
@@ -517,24 +526,30 @@ background:rgba(0,0,0,.45);
 
 background:linear-gradient(
 135deg,
-rgba(131,58,180,.88),
-rgba(253,29,29,.82),
-rgba(252,176,69,.82)
+#6B285A,
+#9B2D52,
+#C96A2D
 );
 
 }
 
 .youtube{
 
-background:rgba(255,255,255,.18);
-
-border:1px solid rgba(255,255,255,.18);
+background:linear-gradient(
+180deg,
+#C12A2A,
+#8E1818
+);
 
 }
 
 .telegram{
 
-background:rgba(26,140,255,.72);
+background:linear-gradient(
+180deg,
+#3E8EDB,
+#2267AF
+);
 
 }
 
