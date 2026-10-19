@@ -3975,6 +3975,67 @@ a:focus-visible {
   }
 }
 
+/* Celebrity Corgi — compact gallery icons */
+.photoCard > img,
+.videoCard > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Compact play icon */
+.videoCard .playIcon,
+.videoCard .playButton,
+.videoThumb .playIcon,
+.videoThumb .playButton {
+  width: 42px;
+  height: 42px;
+  font-size: 17px;
+  border-radius: 50%;
+  background: rgba(15, 15, 17, 0.78);
+  color: #F5D9A8;
+  border: 1px solid rgba(215, 174, 114, 0.65);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Celebrity Corgi — compact mobile gallery */
+@media (max-width: 600px) {
+  .photoSlider,
+  .videoSlider {
+    gap: 12px;
+    padding-bottom: 6px;
+  }
+
+  .photoCard {
+    flex: 0 0 46%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+  }
+
+  .videoCard {
+    flex: 0 0 68%;
+    border-radius: 20px;
+  }
+
+  .videoThumb {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .photosSection,
+  .videosSection {
+    padding-top: 28px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 16px;
+  }
+
+  .sectionHeader h2 {
+    font-size: 25px;
+  }
+}
+
 
 
 
