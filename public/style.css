@@ -3974,6 +3974,33 @@ a:focus-visible {
     transition: none;
   }
 }
+/* Celebrity Corgi — golden touch */
+.socialButton:active,
+.supportBtn:active,
+.menuBtn:active,
+.accordionButton:active {
+  box-shadow:
+    0 0 0 1px rgba(231, 198, 141, 0.35),
+    0 0 18px rgba(215, 174, 114, 0.16);
+}
+/* Celebrity Corgi — subtle gold separators */
+.heroContent h1::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 16px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #D7AE72,
+    #F5D9A8,
+    #D7AE72,
+    transparent
+  );
+  opacity: 0.9;
+}
 
 
 
