@@ -3175,5 +3175,183 @@ html, body, .app {
   background: linear-gradient(135deg, #286FA8, #174A78);
 }
 
+/* ==========================================
+   CELEBRITY CORGI — TYPOGRAPHY & MOBILE
+========================================== */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.sectionHeader h2,
+.accordionButton h2,
+.supportText h2 {
+  letter-spacing: -0.7px;
+  line-height: 1.15;
+}
+
+.heroContent h1 {
+  text-wrap: balance;
+}
+
+.heroContent h2 {
+  line-height: 1.3;
+}
+
+.heroContent p,
+.supportText p,
+.footer p {
+  text-wrap: pretty;
+}
+
+.accordionButton,
+.supportCard,
+.friendCard,
+.loveFront,
+.loveBack,
+.aboutCard {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 480px) {
+  .sectionHeader {
+    gap: 12px;
+    align-items: flex-end;
+  }
+
+  .sectionHeader h2 {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+
+  .sectionLink {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .accordionButton {
+    padding: 19px;
+    border-radius: 24px;
+  }
+
+  .accordionButton h2 {
+    font-size: 21px;
+  }
+
+  .photosSection,
+  .videosSection,
+  .supportSection,
+  .friendsSection {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .aboutSection {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .loveGrid,
+  .aboutGrid {
+    gap: 12px;
+  }
+
+  .loveFront,
+  .loveBack,
+  .aboutCard {
+    border-radius: 22px;
+  }
+
+  .supportCard {
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .footer {
+    padding-top: 48px;
+  }
+}
+
+/* ==========================================
+   CELEBRITY CORGI — FINAL CONTRAST
+========================================== */
+
+:root {
+  color-scheme: dark;
+}
+
+.accordionButton h2,
+.sectionHeader h2,
+.supportText h2,
+.friendName,
+.aboutHeader h2,
+.aboutCard h3,
+.videoInfo h3,
+.footerLogo span {
+  color: #F5EFE5;
+}
+
+.accordionButton p,
+.supportText p,
+.videoInfo p,
+.aboutHeader p,
+.aboutCard p,
+.footer p,
+.comingText {
+  color: #C4B8A8;
+}
+
+.sideMenu {
+  background: #141416;
+  border-left: 1px solid rgba(215, 174, 114, 0.22);
+}
+
+.closeMenu,
+.closeDonate {
+  background: #29292E;
+  border: 1px solid rgba(215, 174, 114, 0.2);
+}
+
+.closeMenu img,
+.closeDonate img {
+  filter: brightness(0) invert(1);
+}
+
+.donateModal input:focus-visible {
+  outline: 2px solid #D7AE72;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #D7AE72;
+  outline-offset: 3px;
+}
+
+.supportButton:hover,
+.donateLink:hover,
+.sendDonate:hover,
+.voiceButton:hover {
+  filter: brightness(1.08);
+}
+
+::placeholder {
+  color: #B8ADA0;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
 
 
