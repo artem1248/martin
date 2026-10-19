@@ -3126,5 +3126,54 @@ html, body, .app {
   border-radius: 20px;
 }
 
+/* ==========================================
+   CELEBRITY CORGI — SOCIAL BUTTON POLISH
+========================================== */
+
+.socialButton {
+  border: 1px solid rgba(215, 174, 114, 0.22);
+  border-radius: 18px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.socialButton:hover {
+  transform: translateY(-3px);
+  border-color: rgba(215, 174, 114, 0.62);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(215, 174, 114, 0.08);
+}
+
+.socialButton:focus-visible {
+  outline: 2px solid #D7AE72;
+  outline-offset: 3px;
+}
+
+.socialButton img {
+  flex-shrink: 0;
+}
+
+.tiktok {
+  background: linear-gradient(135deg, #292929, #111113);
+}
+
+.instagram {
+  background: linear-gradient(135deg, #49233F, #78304D, #A65C35);
+}
+
+.youtube {
+  background: linear-gradient(135deg, #9E2424, #601717);
+}
+
+.telegram {
+  background: linear-gradient(135deg, #286FA8, #174A78);
+}
+
 
 
