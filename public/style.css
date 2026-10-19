@@ -4066,6 +4066,38 @@ a:focus-visible {
   }
 }
 
+/* Celebrity Corgi — matching photo and video cards */
+@media (max-width: 600px) {
+  .photoCard,
+  .videoCard {
+    flex: 0 0 42%;
+    width: 42%;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    box-sizing: border-box;
+  }
+
+  .videoThumb {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+
+  .photoCard img,
+  .videoThumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .videoInfo {
+    padding: 10px;
+  }
+}
+
 
 
 
