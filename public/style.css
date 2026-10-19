@@ -3011,4 +3011,120 @@ html, body, .app {
   }
 }
 
+/* ==========================================
+   CELEBRITY CORGI — PREMIUM SECTIONS
+========================================== */
+
+.accordionButton,
+.supportCard,
+.friendCard {
+  background: linear-gradient(145deg, #1C1C20, #141416);
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.18);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.accordionButton h2,
+.sectionHeader h2,
+.supportText h2,
+.friendName,
+.footerLogo span {
+  color: #F5EFE5;
+}
+
+.accordionButton p,
+.supportText p,
+.footer p {
+  color: #B8ADA0;
+}
+
+.sectionHeader {
+  position: relative;
+}
+
+.sectionHeader h2 {
+  letter-spacing: -0.6px;
+}
+
+.sectionHeader h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 9px;
+  border-radius: 2px;
+  background: #D7AE72;
+}
+
+.sectionLink {
+  color: #D7AE72;
+  transition: color 0.25s ease;
+}
+
+.sectionLink:hover {
+  color: #F0D4A8;
+}
+
+.photoCard,
+.videoCard {
+  border: 1px solid rgba(215, 174, 114, 0.16);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
+}
+
+.photoCard:hover,
+.videoCard:hover {
+  border-color: rgba(215, 174, 114, 0.48);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
+}
+
+.friendCard {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.friendCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(215, 174, 114, 0.42);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.3);
+}
+
+.friendAmount {
+  color: #D7AE72;
+}
+
+.supportPhoto {
+  border: 1px solid rgba(215, 174, 114, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.footerLogo {
+  color: #D7AE72;
+}
+
+.footerLogo img {
+  filter: drop-shadow(0 0 8px rgba(215, 174, 114, 0.2));
+}
+
+.footer {
+  border-top: 1px solid rgba(215, 174, 114, 0.12);
+  margin-top: 42px;
+}
+
+.photoSlider,
+.videoSlider {
+  scrollbar-width: thin;
+  scrollbar-color: #6E5739 transparent;
+}
+
+.photoSlider::-webkit-scrollbar-thumb,
+.videoSlider::-webkit-scrollbar-thumb {
+  background: #6E5739;
+  border-radius: 20px;
+}
+
+
 
