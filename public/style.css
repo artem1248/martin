@@ -10,8 +10,7 @@ box-sizing:border-box;
 }
 
 
-
-:root {
+ :root {
   --bg: #0D0D0F;
   --card: #18181B;
   --text: #F5EFE5;
@@ -27,6 +26,7 @@ box-sizing:border-box;
 
 html {
   scroll-behavior: smooth;
+  background: #0D0D0F;
 }
 
 body {
@@ -38,20 +38,7 @@ body {
   overflow-x: hidden;
 }
 
-
-body{
-    font-family:"Manrope",sans-serif;
-
-    background:
-    radial-gradient(circle at top, rgba(255,255,255,.55), transparent 45%),
-    linear-gradient(180deg,#F5F1EA 0%,#F1ECE5 100%);
-
-    color:var(--text);
-
-    overflow-x:hidden;
-}
-
-img{
+img {
 
 display:block;
 
@@ -2690,3 +2677,142 @@ box-shadow:0 18px 38px rgba(0,0,0,.32);
 
 }
 
+
+
+/* ==========================================
+   CELEBRITY CORGI — DARK LUXURY THEME
+   Visual overrides only; existing structure and interactions preserved.
+========================================== */
+
+html, body, .app {
+  background-color: #0D0D0F;
+  color: #F5EFE5;
+}
+
+.app {
+  background: #0D0D0F;
+}
+
+.accordionButton,
+.supportCard,
+.friendCard,
+.aboutCard,
+.loveFront,
+.loveBack,
+.videoCard {
+  background: linear-gradient(145deg, #1D1D20 0%, #141416 100%);
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, .14);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .30);
+}
+
+.loveFront, .loveBack {
+  background: linear-gradient(145deg, #222124 0%, #171719 100%);
+}
+
+.loveCard h3,
+.loveBack h3,
+.accordionButton h2,
+.sectionHeader h2,
+.supportText h2,
+.friendName,
+.videoInfo h3,
+.footerLogo span,
+.aboutHeader h2,
+.aboutCard h3,
+.siteFooter p,
+.sideMenuContent h2,
+.donateModal h2,
+.voicePopup h3 {
+  color: #F5EFE5;
+}
+
+.loveBack p,
+.videoInfo p,
+.aboutCard p,
+.aboutHeader p,
+.supportText p,
+.footer p,
+.siteFooter small,
+.siteFooter span {
+  color: #B8ADA0;
+}
+
+.sectionLink,
+.friendAmount {
+  color: #D7AE72;
+}
+
+.aboutHeader h2 { color: #F5EFE5; }
+.aboutCard:nth-child(1),
+.aboutCard:nth-child(2),
+.aboutCard:nth-child(3),
+.aboutCard:nth-child(4),
+.aboutCard:nth-child(5),
+.aboutCard:nth-child(6) {
+  background: linear-gradient(145deg, #222124 0%, #171719 100%);
+}
+
+.photoCard { background: #18181B; }
+.videoCard { background: #18181B; }
+.videoInfo { background: #18181B; }
+
+.supportButton,
+.donateLink,
+.sendDonate,
+.voiceButton {
+  background: linear-gradient(135deg, #D7AE72 0%, #A87943 100%);
+  color: #17120D;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .24);
+}
+
+.sideMenu,
+.donateModal,
+.voicePopup {
+  background: #18181B;
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, .18);
+}
+
+.closeMenu,
+.closeDonate,
+.donateModal input {
+  background: #252529;
+  color: #F5EFE5;
+}
+
+.donateModal input {
+  border: 1px solid rgba(215, 174, 114, .22);
+}
+
+.donateModal input::placeholder { color: #B8ADA0; }
+
+.loader {
+  background: #0D0D0F;
+  color: #F5EFE5;
+}
+
+.loader h2 { color: #F5EFE5; }
+
+::-webkit-scrollbar-thumb { background: #6B5438; }
+::-webkit-scrollbar-track { background: #111113; }
+
+::selection {
+  background: #D7AE72;
+  color: #0D0D0F;
+}
+
+.heroLine { background: #D7AE72; }
+
+.socialButton {
+  border-color: rgba(215, 174, 114, .22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
