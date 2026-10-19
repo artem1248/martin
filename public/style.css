@@ -4036,6 +4036,37 @@ a:focus-visible {
   }
 }
 
+/* Celebrity Corgi — smaller gallery cards */
+@media (max-width: 600px) {
+  .photoSlider,
+  .videoSlider {
+    gap: 12px;
+  }
+
+  .photoCard {
+    flex: 0 0 42%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+  }
+
+  .videoCard {
+    flex: 0 0 56%;
+    border-radius: 18px;
+  }
+
+  .videoThumb {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .photosSection,
+  .videosSection {
+    padding-top: 24px;
+  }
+}
+
+
 
 
 
