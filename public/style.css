@@ -2816,3 +2816,100 @@ html, body, .app {
     transition-duration: .01ms !important;
   }
 }
+
+/* ==========================================
+   CELEBRITY CORGI — DARK FINISH
+========================================== */
+
+.loveFront,
+.loveBack {
+  background: linear-gradient(145deg, #202024, #151518);
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.18);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.loveBack p {
+  color: #B8ADA0;
+}
+
+.videoCard {
+  background: #18181B;
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.14);
+}
+
+.sideMenu,
+.donateModal,
+.voicePopup {
+  background: #18181B;
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.2);
+}
+
+.sideMenu h2,
+.donateModal h2,
+.voicePopup h3 {
+  color: #F5EFE5;
+}
+
+.closeMenu,
+.closeDonate {
+  background: #292629;
+}
+
+.donateModal input {
+  background: #242428;
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.22);
+}
+
+.donateModal input::placeholder {
+  color: #B8ADA0;
+}
+
+.supportButton,
+.donateLink,
+.sendDonate,
+.voiceButton {
+  background: linear-gradient(135deg, #D7AE72, #A87943);
+  color: #111113;
+}
+
+.aboutHeader h2,
+.aboutCard h3 {
+  color: #F5EFE5;
+}
+
+.aboutHeader p,
+.aboutCard p {
+  color: #B8ADA0;
+}
+
+.aboutCard,
+.aboutCard:nth-child(1),
+.aboutCard:nth-child(2),
+.aboutCard:nth-child(3),
+.aboutCard:nth-child(4),
+.aboutCard:nth-child(5),
+.aboutCard:nth-child(6) {
+  background: linear-gradient(145deg, #202024, #161619);
+  color: #F5EFE5;
+  border: 1px solid rgba(215, 174, 114, 0.16);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.24);
+}
+
+.loader {
+  background: #0D0D0F;
+}
+
+.sectionLink,
+.friendAmount {
+  color: #D7AE72;
+}
+
+::selection {
+  background: #D7AE72;
+  color: #0D0D0F;
+}
+
