@@ -22,11 +22,6 @@ box-sizing:border-box;
   --gold: #D7AE72;
   --shadow: 0 18px 55px rgba(0, 0, 0, .32);
   --radius: 24px;
-}
-
-}
-
-html{
 
 scroll-behavior:smooth;
 
