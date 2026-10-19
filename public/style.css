@@ -3759,6 +3759,222 @@ a:focus-visible {
   }
 }
 
+/* CELEBRITY CORGI — SOCIAL BUTTON FIX */
+
+.socialButton::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Elegant Telegram coming-soon label */
+.telegram .comingSoon {
+  margin-left: auto;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  padding: 7px 11px;
+  border: 1px solid rgba(240, 212, 165, 0.48);
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(215, 174, 114, 0.24),
+    rgba(20, 19, 19, 0.72)
+  );
+  color: #F5D9A8;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 380px) {
+  .telegram .comingSoon {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+}
+
+/* CELEBRITY CORGI — SIGNATURE BUTTONS */
+
+.socialButton {
+  min-height: 62px;
+  height: auto;
+  padding: 0 18px;
+  gap: 14px;
+  border: 1px solid rgba(231, 198, 141, 0.48);
+  border-radius: 19px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  font-weight: 800;
+  letter-spacing: 0.25px;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.socialButton::before {
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+.socialButton img {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.tiktok {
+  background: linear-gradient(115deg, #303033, #171719 62%, #29231B);
+}
+
+.instagram {
+  background: linear-gradient(115deg, #38202F, #6D304B 58%, #8D5637);
+}
+
+.youtube {
+  background: linear-gradient(115deg, #762020, #A62D2D 60%, #481719);
+}
+
+.telegram {
+  background: linear-gradient(115deg, #194D70, #287FB0 60%, #183C58);
+}
+
+@media (hover: hover) {
+  .socialButton:hover {
+    transform: translateY(-2px);
+    border-color: rgba(240, 212, 165, 0.9);
+    filter: brightness(1.08);
+    box-shadow:
+      0 16px 34px rgba(0, 0, 0, 0.38),
+      0 0 18px rgba(215, 174, 114, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+}
+
+.socialButton:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 380px) {
+  .socialButton {
+    min-height: 58px;
+    padding: 0 14px;
+    gap: 11px;
+    font-size: 14px;
+  }
+}
+
+/* CELEBRITY CORGI — PREMIUM SECTION CARDS */
+
+.accordionButton,
+.supportCard,
+.friendCard {
+  position: relative;
+  border: 1px solid rgba(215, 174, 114, 0.24);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    #222124 0%,
+    #19191C 55%,
+    #131315 100%
+  );
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.accordionButton h2,
+.supportText h2,
+.friendName {
+  color: #F5EFE5;
+  letter-spacing: -0.35px;
+}
+
+.accordionButton p,
+.supportText p {
+  color: #B8ADA0;
+}
+
+@media (hover: hover) {
+  .accordionButton:hover,
+  .friendCard:hover {
+    border-color: rgba(215, 174, 114, 0.48);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.34),
+      0 0 18px rgba(215, 174, 114, 0.07),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordionButton,
+  .supportCard,
+  .friendCard {
+    transition: none;
+  }
+}
+
+/* CELEBRITY CORGI — CINEMATIC GALLERY */
+
+.photoCard,
+.videoCard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(215, 174, 114, 0.24);
+  border-radius: 22px;
+  background: #18181B;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.photoCard img,
+.videoThumb img {
+  transition: transform 0.45s ease;
+}
+
+.photoCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (hover: hover) {
+  .photoCard:hover,
+  .videoCard:hover {
+    transform: translateY(-4px);
+    border-color: rgba(215, 174, 114, 0.58);
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.38);
+  }
+
+  .photoCard:hover img,
+  .videoCard:hover .videoThumb img {
+    transform: scale(1.035);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photoCard,
+  .videoCard,
+  .photoCard img,
+  .videoThumb img {
+    transition: none;
+  }
+}
+
 
 
 
