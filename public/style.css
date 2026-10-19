@@ -9,17 +9,20 @@ padding:0;
 box-sizing:border-box;
 }
 
-:root{
 
---bg:#F3EFE8;
---card:#FBF7F1;
---text:#241C16;
---textLight:#786C61;
-
---white:#FFFFFF;
-
---shadow:
-0 18px 55px rgba(0,0,0,.06);
+:root {
+  --bg: #0D0D0F;
+  --card: #18181B;
+  --text: #F5EFE5;
+  --textLight: #B8ADA0;
+  --white: #FFFFFF;
+  --accent: #D7AE72;
+  --accentDark: #A87943;
+  --wine: #54252D;
+  --gold: #D7AE72;
+  --shadow: 0 18px 55px rgba(0, 0, 0, .32);
+  --radius: 24px;
+}
 
 --radius:24px;
 
